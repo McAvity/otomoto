@@ -49,3 +49,4 @@ temp/
 examples/
 **/__pycache__/
 backend/uv.lock
+uv.lock

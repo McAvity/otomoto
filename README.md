@@ -57,7 +57,14 @@ uv run pytest tests/ -v
 
 ### Integration Tests
 ```bash
-uv run pytest tests/test_integration.py -v
+# Manual verification (checks backend, CORS, userscript file)
+uv run pytest tests/test_manual_verification.py -v
+
+# Automated Selenium tests (full end-to-end with real browser)
+uv run pytest tests/test_selenium_auto.py -v
+
+# Run all tests
+uv run pytest tests/ -v
 ```
 
 ## API Endpoints
@@ -72,7 +79,8 @@ uv run pytest tests/test_integration.py -v
 - ✅ Cross-origin communication
 - ✅ Error handling in userscript
 - ✅ Pytest tests for backend
-- ✅ Playwright integration tests
+- ✅ Selenium integration tests (automated end-to-end)
+- ✅ Manual verification tests
 - ✅ No localStorage dependency
 - ✅ uv dependency management
 
