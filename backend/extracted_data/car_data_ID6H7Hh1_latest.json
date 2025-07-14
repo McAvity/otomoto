@@ -1,6 +1,6 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6H7Hh1.html",
-  "timestamp": "2025-07-14T00:12:24.923Z",
+  "timestamp": "2025-07-14T23:23:47.179Z",
   "data": {
     "car_name": "Renault Master",
     "price": "39 900",
@@ -9,17 +9,17 @@
     "phone": "784-90-79-77",
     "vin": "ZADZW0NN784907977",
     "car_type": "Używany · 2001 · Niski przebieg · Do negocjacji",
-    "year": "Renault",
     "negotiable": "Używany · 2001 · Niski przebieg · Do negocjacji",
     "mileage": "100 000 km",
     "fuel": "Diesel",
     "transmission": "Manualna",
     "vehicle_type": "Kamper",
     "cubic_capacity": "2 200 cm3",
-    "brand": "",
-    "model": "Renault",
-    "user_notes": "",
+    "brand": "Renault",
+    "model": "Master",
+    "year": "2001",
+    "user_notes": "podwojne lozko",
     "user_grade": 3,
-    "user_timestamp": "2025-07-14T00:12:24.923Z"
+    "user_timestamp": "2025-07-14T23:23:47.179Z"
   }
 }

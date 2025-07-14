@@ -1,6 +1,6 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/nissan-primastar-ID6Hvdwx.html",
-  "timestamp": "2025-07-14T00:14:16.532Z",
+  "timestamp": "2025-07-14T23:25:58.934Z",
   "data": {
     "car_name": "Nissan PRIMASTAR",
     "price": "45 000",
@@ -9,17 +9,17 @@
     "phone": "793230722",
     "vin": "VSKF4BHD6UY616685",
     "car_type": "Używany · 2008 · Do negocjacji",
-    "year": "Nissan",
     "negotiable": "Używany · 2008 · Do negocjacji",
     "mileage": "245 000 km",
     "fuel": "Diesel",
     "transmission": "Manualna",
     "vehicle_type": "Kamper",
     "cubic_capacity": "1 998 cm3",
-    "brand": "",
-    "model": "Nissan",
-    "user_notes": "hello",
+    "brand": "Nissan",
+    "model": "PRIMASTAR",
+    "year": "2008",
+    "user_notes": "calkiem dobra lodowka\noba fotele odwracane",
     "user_grade": 3,
-    "user_timestamp": "2025-07-14T00:14:16.532Z"
+    "user_timestamp": "2025-07-14T23:25:58.934Z"
   }
 }

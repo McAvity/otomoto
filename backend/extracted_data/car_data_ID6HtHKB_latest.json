@@ -1,6 +1,6 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/ford-transit-ID6HtHKB.html",
-  "timestamp": "2025-07-14T00:12:56.086Z",
+  "timestamp": "2025-07-14T23:24:50.840Z",
   "data": {
     "car_name": "Ford Transit",
     "price": "40 000",
@@ -9,7 +9,6 @@
     "phone": "511941334",
     "vin": "WF0XXXTTFX9A46870",
     "car_type": "Używany · 2009 · Do negocjacji",
-    "year": "Ford",
     "negotiable": "Używany · 2009 · Do negocjacji",
     "mileage": "238 000 km",
     "fuel": "Diesel",
@@ -18,8 +17,9 @@
     "cubic_capacity": "2 402 cm3",
     "brand": "Ford",
     "model": "Transit",
-    "user_notes": "",
+    "year": "2009",
+    "user_notes": "nieocieplony",
     "user_grade": 1,
-    "user_timestamp": "2025-07-14T00:12:56.086Z"
+    "user_timestamp": "2025-07-14T23:24:50.840Z"
   }
 }
