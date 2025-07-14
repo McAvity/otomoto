@@ -50,3 +50,6 @@ examples/
 **/__pycache__/
 backend/uv.lock
 uv.lock
+
+# HTML snapshots (not needed in git)
+backend/html_snapshots/

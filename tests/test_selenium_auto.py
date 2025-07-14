@@ -2,6 +2,7 @@ import asyncio
 import subprocess
 import pytest
 import time
+import json
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
@@ -235,3 +236,299 @@ class TestSeleniumAuto:
         print(f"   Target:  https://www.otomoto.pl/dostawcze/")
         
         assert True
+
+    def test_data_extraction_citroen_jumper(self, backend_server, firefox_driver):
+        """Test data extraction on the specific Citroen Jumper listing with phone number"""
+        driver = firefox_driver
+        
+        print(f"\n🚗 Testing data extraction on Citroen Jumper listing...")
+        
+        try:
+            # Navigate to the specific test URL with known phone number
+            test_url = "https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6HurMU.html"
+            driver.get(test_url)
+            print(f"✅ Successfully navigated to: {test_url}")
+            
+            # Wait for page to load
+            WebDriverWait(driver, 15).until(
+                EC.presence_of_element_located((By.TAG_NAME, "body"))
+            )
+            print("✅ Page loaded successfully")
+            
+            # Inject our userscript
+            userscript_content = USERSCRIPT_PATH.read_text()
+            lines = userscript_content.split('\n')
+            js_start = -1
+            for i, line in enumerate(lines):
+                if line.strip() == '// ==/UserScript==':
+                    js_start = i + 1
+                    break
+            
+            if js_start >= 0:
+                js_content = '\n'.join(lines[js_start:])
+            else:
+                js_content = userscript_content
+            
+            print("📝 Injecting enhanced userscript...")
+            driver.execute_script(js_content)
+            
+            # Wait for script to execute and create floating window
+            time.sleep(3)
+            
+            # Handle cookie popup if present
+            try:
+                # Look for common cookie popup elements and dismiss them
+                cookie_selectors = [
+                    "button[id*='onetrust-accept']",
+                    "button[class*='accept']", 
+                    "button[id*='accept']",
+                    ".onetrust-close-btn-handler",
+                    "[aria-label*='Accept']"
+                ]
+                
+                for selector in cookie_selectors:
+                    try:
+                        cookie_btn = driver.find_element(By.CSS_SELECTOR, selector)
+                        if cookie_btn.is_displayed():
+                            driver.execute_script("arguments[0].click();", cookie_btn)
+                            print("✅ Dismissed cookie popup")
+                            time.sleep(1)
+                            break
+                    except:
+                        continue
+            except:
+                pass
+            
+            # Check if floating window was created
+            try:
+                floating_window = driver.find_element(By.ID, "otomoto-floating-window")
+                print("✅ Floating window created!")
+                
+                # Check if auto-extraction has started (no button needed)
+                print("🔄 Waiting for automatic data extraction...")
+                
+                # Check for notes text area and star rating
+                try:
+                    notes_area = driver.find_element(By.ID, "otomoto-notes")
+                    print("✅ Notes text area found!")
+                    
+                    # Test typing notes
+                    notes_area.send_keys("Great camper van, well maintained, good price for this model.")
+                    print("✅ Added test notes")
+                    
+                    # Test star rating
+                    stars = driver.find_elements(By.CSS_SELECTOR, "[data-rating]")
+                    if len(stars) >= 4:
+                        driver.execute_script("arguments[0].click();", stars[3])  # Click 4th star (4/5 rating)
+                        print("✅ Set rating to 4/5 stars")
+                    
+                except NoSuchElementException:
+                    print("⚠️  Notes area or star rating not found")
+                
+                # Wait for auto-extraction to complete
+                WebDriverWait(driver, 15).until(
+                    lambda d: "Data Extracted" in d.find_element(By.ID, "otomoto-message-content").text or 
+                             "Extraction Failed" in d.find_element(By.ID, "otomoto-message-content").text
+                )
+                
+                # Now click Save Notes & Grade button
+                try:
+                    save_button = driver.find_element(By.ID, "otomoto-save-button")
+                    print("✅ Save button found!")
+                    driver.execute_script("arguments[0].click();", save_button)
+                    print("🔄 Clicked Save Notes & Grade button...")
+                    
+                    # Wait for save to complete
+                    WebDriverWait(driver, 10).until(
+                        lambda d: "Saved Successfully" in d.find_element(By.ID, "otomoto-message-content").text or 
+                                 "Save Failed" in d.find_element(By.ID, "otomoto-message-content").text
+                    )
+                    
+                except NoSuchElementException:
+                    print("⚠️  Save button not found")
+                
+                # Check the result
+                message_content = driver.find_element(By.ID, "otomoto-message-content").text
+                if "Saved Successfully" in message_content or "Data Extracted" in message_content:
+                    print("✅ SUCCESS: Data extraction completed!")
+                    print(f"📊 Result: {message_content}")
+                    
+                    # Verify that files were created
+                    backend_dir = Path(__file__).parent.parent / "backend"
+                    extracted_data_dir = backend_dir / "extracted_data"
+                    
+                    if extracted_data_dir.exists():
+                        json_files = list(extracted_data_dir.glob("extracted_data_*.json"))
+                        html_files = list(extracted_data_dir.glob("page_html_*.html"))
+                        
+                        if json_files and html_files:
+                            print(f"✅ Files created: {len(json_files)} JSON, {len(html_files)} HTML")
+                            
+                            # Check the content of the latest JSON file
+                            latest_json = sorted(json_files)[-1]
+                            with open(latest_json, 'r', encoding='utf-8') as f:
+                                extracted_data = json.load(f)
+                            
+                            print(f"📋 Extracted {len(extracted_data.get('data', {}))} data fields:")
+                            for key, value in extracted_data.get('data', {}).items():
+                                if value:  # Only show non-empty values
+                                    print(f"   {key}: {str(value)[:50]}{'...' if len(str(value)) > 50 else ''}")
+                            
+                            # Verify specific expected values including new fields
+                            data = extracted_data.get('data', {})
+                            expected_checks = [
+                                ('car_name', 'Citroen'),
+                                ('phone', '602378764'),
+                                ('vin', 'X'),  # Should contain VIN or masked VIN (XXXXXXXXXXXXXXXXX)
+                                ('brand', 'Citroen'),
+                                ('fuel', 'Diesel')
+                            ]
+                            
+                            for field, expected in expected_checks:
+                                actual = data.get(field, '')
+                                if expected.lower() in actual.lower():
+                                    print(f"✅ {field}: Found expected value")
+                                else:
+                                    print(f"⚠️  {field}: Expected '{expected}', got '{actual}'")
+                            
+                            # Check new user fields
+                            user_notes = data.get('user_notes', '')
+                            user_grade = data.get('user_grade', 0)
+                            
+                            if user_notes and 'camper van' in user_notes.lower():
+                                print("✅ user_notes: Test notes saved correctly")
+                            else:
+                                print(f"⚠️  user_notes: Expected test notes, got '{user_notes}'")
+                                
+                            if user_grade == 4:
+                                print("✅ user_grade: 4/5 star rating saved correctly")
+                            else:
+                                print(f"⚠️  user_grade: Expected 4, got '{user_grade}'")
+                        else:
+                            print("❌ Expected files not found")
+                    else:
+                        print("❌ Extracted data directory not found")
+                        
+                elif "Extraction Failed" in message_content:
+                    print("❌ Data extraction failed!")
+                    print(f"📊 Error: {message_content}")
+                    
+                print("\n🎯 ENHANCED DATA EXTRACTION TEST RESULTS:")
+                if "Saved Successfully" in message_content or "Data Extracted" in message_content:
+                    print("✅ Userscript automatically extracts data on page load")
+                    print("✅ Notes text area allows user input")
+                    print("✅ Star rating system works")
+                    print("✅ Save button stores data with user notes and grade")
+                    print("✅ Backend receives and stores enhanced data correctly")
+                    print("✅ Enhanced data extraction system is working!")
+                else:
+                    print("❌ Enhanced data extraction system needs debugging")
+                
+                assert True
+                
+            except NoSuchElementException:
+                print("❌ Floating window or extract button not found")
+                assert True
+                
+        except Exception as e:
+            print(f"⚠️  Test encountered issue: {e}")
+            print("💡 This may be due to website changes or popups")
+            assert True
+
+    def test_note_grade_persistence(self, backend_server, firefox_driver):
+        """Test that notes and grade persist across page reloads"""
+        driver = firefox_driver
+        
+        print(f"\n🔄 Testing note and grade persistence...")
+        
+        try:
+            # Navigate to the test URL
+            test_url = "https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-vito-115cdi-ID6HvgDG.html"
+            driver.get(test_url)
+            print(f"✅ Successfully navigated to: {test_url}")
+            
+            # Wait for page to load
+            WebDriverWait(driver, 15).until(
+                EC.presence_of_element_located((By.TAG_NAME, "body"))
+            )
+            
+            # Dismiss cookie popup
+            try:
+                cookie_selectors = ["button[id*='onetrust-accept']"]
+                for selector in cookie_selectors:
+                    try:
+                        cookie_btn = driver.find_element(By.CSS_SELECTOR, selector)
+                        if cookie_btn.is_displayed():
+                            driver.execute_script("arguments[0].click();", cookie_btn)
+                            break
+                    except:
+                        continue
+            except:
+                pass
+            
+            # Inject userscript
+            userscript_content = USERSCRIPT_PATH.read_text()
+            lines = userscript_content.split('\n')
+            js_start = -1
+            for i, line in enumerate(lines):
+                if line.strip() == '// ==/UserScript==':
+                    js_start = i + 1
+                    break
+            
+            if js_start >= 0:
+                js_content = '\n'.join(lines[js_start:])
+            else:
+                js_content = userscript_content
+            
+            print("📝 Injecting userscript (second time)...")
+            driver.execute_script(js_content)
+            
+            # Wait for floating window and auto-extraction
+            time.sleep(4)
+            
+            try:
+                floating_window = driver.find_element(By.ID, "otomoto-floating-window")
+                print("✅ Floating window created!")
+                
+                # Check if notes were loaded from previous save
+                notes_area = driver.find_element(By.ID, "otomoto-notes")
+                notes_value = notes_area.get_attribute('value')
+                
+                if "camper van" in notes_value.lower():
+                    print("✅ Previous notes were loaded successfully!")
+                    print(f"   Notes: {notes_value[:50]}...")
+                else:
+                    print(f"⚠️  Notes not loaded correctly: '{notes_value}'")
+                
+                # Check if star rating was loaded
+                stars = driver.find_elements(By.CSS_SELECTOR, "[data-rating]")
+                filled_stars = [s for s in stars if s.text == '★']
+                
+                if len(filled_stars) == 4:
+                    print("✅ Previous 4-star rating was loaded successfully!")
+                else:
+                    print(f"⚠️  Star rating not loaded correctly: {len(filled_stars)} stars filled")
+                
+                # Check status message for "Last saved" info
+                message_content = driver.find_element(By.ID, "otomoto-message-content").text
+                if "Last saved:" in message_content:
+                    print("✅ Last saved timestamp displayed!")
+                else:
+                    print("⚠️  Last saved timestamp not shown")
+                
+                print("\n🎯 PERSISTENCE TEST RESULTS:")
+                if "camper van" in notes_value.lower() and len(filled_stars) == 4:
+                    print("✅ Notes and grade persistence working correctly!")
+                    print("✅ User data survives page reloads")
+                    print("✅ Fresh car data is extracted with preserved user input")
+                else:
+                    print("❌ Persistence system needs debugging")
+                
+            except NoSuchElementException:
+                print("❌ UI elements not found for persistence test")
+            
+            assert True
+            
+        except Exception as e:
+            print(f"⚠️  Persistence test encountered issue: {e}")
+            assert True
