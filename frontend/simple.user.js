@@ -4,7 +4,8 @@
 // @version      1.0
 // @description  Shows messages from backend API in a floating window
 // @author       Claude
-// @match        https://www.otomoto.pl/dostawcze/oferta/*
+// @match        https://www.otomoto.pl/dostawcze/*
+// @require      http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js
 // @grant        none
 // ==/UserScript==
 
@@ -156,7 +157,7 @@
 
         // Save button
         const saveButton = document.createElement('button');
-        saveButton.textContent = 'Save Notes & Grade';
+        saveButton.textContent = 'Update Notes & Grade';
         saveButton.id = 'otomoto-save-button';
         saveButton.style.cssText = `
             background: #28a745;
@@ -297,11 +298,10 @@
         extractedData.phone = await extractPhoneNumber();
         extractedData.vin = await extractVIN();
         
-        // Parse compound field (car_type_status contains: "Używany", year, "Do negocjacji")
+        // Parse compound field (car_type_status contains: "Używany", "Do negocjacji")
         const carTypeStatus = getTextContent(extractionConfig.car_type_status);
         const statusParts = carTypeStatus.split(' • ').map(s => s.trim());
         extractedData.car_type = statusParts[0] || '';
-        extractedData.year = getTextContent(extractionConfig.year);
         extractedData.negotiable = statusParts.find(part => part.includes('negocjacji')) || '';
         
         // Extract parameters (mileage, fuel, transmission, etc.)
@@ -315,11 +315,31 @@
         extractedData.vehicle_type = parameters.find(p => /kamper|dostawczy|osobowy/i.test(p)) || '';
         extractedData.cubic_capacity = parameters.find(p => /^\d+\s*\d*\s*cm3?$|^\d+\s*\d*$/.test(p) && !p.includes('km')) || '';
         
-        // Extract brand and model (often in same elements)
-        const brandModelElements = document.querySelectorAll(extractionConfig.brand);
-        const brandModelTexts = Array.from(brandModelElements).map(el => el.textContent.trim());
-        extractedData.brand = brandModelTexts.find(text => /mercedes|bmw|audi|volkswagen|ford|opel/i.test(text)) || '';
-        extractedData.model = brandModelTexts.find(text => text !== extractedData.brand && text.length > 2) || '';
+        // Extract brand, model, and year using label-based approach
+        extractedData.brand = getValueByLabel('Marka pojazdu');
+        extractedData.model = getValueByLabel('Model pojazdu');
+        const yearFromLabel = getValueByLabel('Rok produkcji');
+        
+        // Use label-based year if found, otherwise fall back to original method
+        if (yearFromLabel) {
+            extractedData.year = yearFromLabel;
+        } else {
+            extractedData.year = getTextContent(extractionConfig.year);
+        }
+        
+        // If brand/model extraction failed, fall back to original method
+        if (!extractedData.brand || !extractedData.model) {
+            const brandModelElements = document.querySelectorAll(extractionConfig.brand);
+            const brandModelTexts = Array.from(brandModelElements).map(el => el.textContent.trim());
+            
+            if (!extractedData.brand) {
+                extractedData.brand = brandModelTexts.find(text => /mercedes|bmw|audi|volkswagen|ford|opel|citroen|renault|peugeot|fiat|iveco|man|volvo|scania|daf/i.test(text)) || '';
+            }
+            
+            if (!extractedData.model) {
+                extractedData.model = brandModelTexts.find(text => text !== extractedData.brand && text.length > 2) || '';
+            }
+        }
         
         return extractedData;
     }
@@ -331,6 +351,118 @@
             return element ? element.textContent.trim() : '';
         } catch (error) {
             console.warn(`Failed to extract data for selector ${selector}:`, error);
+            return '';
+        }
+    }
+    
+    // Helper function to find value next to a specific label using efficient CSS selectors
+    function getValueByLabel(labelText) {
+        try {
+            console.log(`Looking for label: "${labelText}"`);
+            
+            // Check if jQuery is available, if not use native methods
+            const $ = window.jQuery || window.$;
+            
+            if ($) {
+                // Use jQuery for more efficient lookups
+                console.log('Using jQuery for CSS lookups');
+                
+                // Find <p> elements that contain the exact label text
+                const $labelParagraphs = $('p').filter(function() {
+                    return $(this).text().trim() === labelText;
+                });
+                
+                if ($labelParagraphs.length > 0) {
+                    console.log(`Found ${$labelParagraphs.length} <p> element(s) with label "${labelText}"`);
+                    
+                    // Try each matching paragraph
+                    for (let i = 0; i < $labelParagraphs.length; i++) {
+                        const $labelP = $labelParagraphs.eq(i);
+                        
+                        // Strategy 1: Next sibling <p>
+                        const $nextP = $labelP.next('p');
+                        if ($nextP.length > 0) {
+                            const valueText = $nextP.text().trim();
+                            if (valueText) {
+                                console.log(`Found ${labelText} value in next <p> (jQuery):`, valueText);
+                                return valueText;
+                            }
+                        }
+                        
+                        // Strategy 2: Any following sibling <p>
+                        const $followingPs = $labelP.nextAll('p').first();
+                        if ($followingPs.length > 0) {
+                            const valueText = $followingPs.text().trim();
+                            if (valueText) {
+                                console.log(`Found ${labelText} value in following <p> (jQuery):`, valueText);
+                                return valueText;
+                            }
+                        }
+                        
+                        // Strategy 3: Next <p> in parent container
+                        const $parentNextP = $labelP.parent().next().find('p').first();
+                        if ($parentNextP.length > 0) {
+                            const valueText = $parentNextP.text().trim();
+                            if (valueText) {
+                                console.log(`Found ${labelText} value in parent's next <p> (jQuery):`, valueText);
+                                return valueText;
+                            }
+                        }
+                    }
+                }
+            } else {
+                // Fallback to native DOM methods with efficient CSS selectors
+                console.log('Using native DOM for CSS lookups');
+                
+                // Use more specific CSS selector to find potential label elements
+                const labelParagraphs = document.querySelectorAll('p:not(script):not(style)');
+                
+                for (const paragraph of labelParagraphs) {
+                    const text = paragraph.textContent.trim();
+                    
+                    // Check if this <p> contains our exact label
+                    if (text === labelText) {
+                        console.log(`Found exact label "${labelText}" in <p> element`);
+                        
+                        // Strategy 1: CSS selector for next sibling <p>
+                        const nextP = paragraph.parentElement.querySelector(`p:has(+ p), p ~ p`);
+                        if (nextP && nextP !== paragraph) {
+                            const valueText = nextP.textContent.trim();
+                            if (valueText && valueText !== labelText) {
+                                console.log(`Found ${labelText} value via CSS selector:`, valueText);
+                                return valueText;
+                            }
+                        }
+                        
+                        // Strategy 2: Check immediate next sibling <p>
+                        let nextElement = paragraph.nextElementSibling;
+                        if (nextElement && nextElement.tagName === 'P') {
+                            const valueText = nextElement.textContent.trim();
+                            if (valueText) {
+                                console.log(`Found ${labelText} value in next <p>:`, valueText);
+                                return valueText;
+                            }
+                        }
+                        
+                        // Strategy 3: Look for next <p> in parent's children using CSS
+                        if (paragraph.parentElement) {
+                            const nextPInParent = paragraph.parentElement.querySelector(`p:nth-child(${Array.from(paragraph.parentElement.children).indexOf(paragraph) + 2})`);
+                            if (nextPInParent && nextPInParent.tagName === 'P') {
+                                const valueText = nextPInParent.textContent.trim();
+                                if (valueText) {
+                                    console.log(`Found ${labelText} value in parent's next <p>:`, valueText);
+                                    return valueText;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            console.log(`Label "${labelText}" not found in any <p> element`);
+            return '';
+        } catch (error) {
+            console.warn(`Failed to extract value for label "${labelText}":`, error);
             return '';
         }
     }
@@ -735,6 +867,10 @@
                 retryButton.textContent = 'Retry Phone/VIN Extraction';
             }
             
+            // Automatically save the extracted data
+            contentElement.innerHTML += `<br><div style="color: #007bff; font-size: 10px;">🔄 Auto-saving data...</div>`;
+            await autoSaveData(existingUserData);
+            
         } catch (error) {
             contentElement.innerHTML = `
                 <div style="color: red; font-weight: bold;">❌ Extraction Failed</div>
@@ -742,6 +878,72 @@
                     Error: ${error.message}
                 </div>
             `;
+        }
+    }
+    
+    // Auto-save function for extracted data
+    async function autoSaveData(existingUserData) {
+        try {
+            if (!extractedCarData) {
+                console.log('No extracted data to auto-save');
+                return;
+            }
+            
+            const timestamp = new Date().toISOString();
+            
+            // Preserve existing user notes and grade
+            const notes = existingUserData.user_notes || '';
+            const grade = existingUserData.user_grade || 0;
+            
+            // Add user input to extracted data
+            const finalData = {
+                ...extractedCarData,
+                user_notes: notes,
+                user_grade: grade,
+                user_timestamp: timestamp
+            };
+            
+            // Prepare data for backend
+            const dataPayload = {
+                url: window.location.href,
+                timestamp: timestamp,
+                data: finalData
+            };
+            
+            // Save extracted data
+            const dataResult = await sendToBackend('/save-extracted-data', dataPayload);
+            
+            // Save HTML
+            const htmlPayload = {
+                url: window.location.href,
+                html_content: document.documentElement.outerHTML
+            };
+            await sendToBackend('/save-html', htmlPayload);
+            
+            // Update the UI to show auto-save success
+            const contentElement = document.getElementById('otomoto-message-content');
+            if (contentElement) {
+                const autoSaveDiv = contentElement.querySelector('[style*="Auto-saving"]');
+                if (autoSaveDiv) {
+                    autoSaveDiv.innerHTML = '✅ Auto-saved successfully!';
+                    autoSaveDiv.style.color = '#28a745';
+                }
+            }
+            
+            console.log('Auto-save completed successfully');
+            
+        } catch (error) {
+            console.error('Auto-save failed:', error);
+            
+            // Update the UI to show auto-save failure
+            const contentElement = document.getElementById('otomoto-message-content');
+            if (contentElement) {
+                const autoSaveDiv = contentElement.querySelector('[style*="Auto-saving"]');
+                if (autoSaveDiv) {
+                    autoSaveDiv.innerHTML = '❌ Auto-save failed';
+                    autoSaveDiv.style.color = '#dc3545';
+                }
+            }
         }
     }
     
@@ -763,7 +965,7 @@
         
         try {
             saveButton.disabled = true;
-            saveButton.textContent = 'Saving...';
+            saveButton.textContent = 'Updating...';
             
             const notes = notesTextArea.value.trim();
             const grade = currentRating;
@@ -807,7 +1009,7 @@
                 </div>
             `;
             
-            saveButton.textContent = '✅ Saved';
+            saveButton.textContent = '✅ Updated';
             
         } catch (error) {
             contentElement.innerHTML = `
@@ -818,7 +1020,7 @@
             `;
             
             saveButton.disabled = false;
-            saveButton.textContent = 'Save Notes & Grade';
+            saveButton.textContent = 'Update Notes & Grade';
         }
     }
     

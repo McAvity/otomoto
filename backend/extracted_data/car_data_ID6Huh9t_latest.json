@@ -1,6 +1,6 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/fiat-ducato-ID6Huh9t.html",
-  "timestamp": "2025-07-14T00:14:25.429Z",
+  "timestamp": "2025-07-14T01:25:18.552Z",
   "data": {
     "car_name": "Fiat Ducato",
     "price": "48 600",
@@ -9,17 +9,17 @@
     "phone": "601279450",
     "vin": "ZFA23000005971089",
     "car_type": "Używany · 2000 · Do negocjacji",
-    "year": "Fiat",
     "negotiable": "Używany · 2000 · Do negocjacji",
     "mileage": "198 000 km",
     "fuel": "Diesel",
     "transmission": "Manualna",
     "vehicle_type": "Kamper",
     "cubic_capacity": "1 905 cm3",
-    "brand": "",
-    "model": "Fiat",
+    "brand": "Fiat",
+    "model": "Ducato",
+    "year": "2000",
     "user_notes": "",
     "user_grade": 1,
-    "user_timestamp": "2025-07-14T00:14:25.429Z"
+    "user_timestamp": "2025-07-14T01:25:18.552Z"
   }
 }

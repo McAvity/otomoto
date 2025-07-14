@@ -2,10 +2,11 @@ import datetime
 import json
 import re
 from pathlib import Path
-from typing import Dict, Any
-from fastapi import FastAPI, HTTPException
+from typing import Dict, Any, List
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response
+from fastapi.responses import Response, HTMLResponse
+from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
 app = FastAPI(title="Otomoto Script Backend", version="1.0.0")
@@ -15,6 +16,9 @@ STORAGE_DIR = Path("extracted_data")
 HTML_DIR = Path("html_snapshots")
 STORAGE_DIR.mkdir(exist_ok=True)
 HTML_DIR.mkdir(exist_ok=True)
+
+# Jinja2 templates
+templates = Jinja2Templates(directory="templates")
 
 # In-memory index for fast car data lookup: car_id -> (filename, last_saved)
 CAR_INDEX: Dict[str, tuple] = {}
@@ -87,6 +91,50 @@ def update_index(car_id: str, filename: str, timestamp: str):
     if car_id:
         CAR_INDEX[car_id] = (filename, timestamp)
 
+def load_all_cars() -> List[Dict[str, Any]]:
+    """Load all car data from JSON files"""
+    cars = []
+    
+    try:
+        # Get all car data files
+        json_files = list(STORAGE_DIR.glob("car_data_*_latest.json"))
+        
+        for json_file in json_files:
+            try:
+                with open(json_file, 'r', encoding='utf-8') as f:
+                    file_data = json.load(f)
+                
+                car_data = file_data.get('data', {})
+                
+                # Extract car ID from filename
+                car_id_match = re.search(r'car_data_(ID[A-Za-z0-9]+)_latest\.json', json_file.name)
+                car_id = car_id_match.group(1) if car_id_match else ""
+                
+                # Add metadata
+                car_data['car_id'] = car_id
+                car_data['file_timestamp'] = file_data.get('timestamp', '')
+                car_data['url'] = file_data.get('url', '')
+                
+                # Ensure numeric rating
+                user_grade = car_data.get('user_grade', 0)
+                if isinstance(user_grade, str):
+                    try:
+                        user_grade = int(user_grade)
+                    except (ValueError, TypeError):
+                        user_grade = 0
+                car_data['user_grade'] = user_grade
+                
+                cars.append(car_data)
+                
+            except (json.JSONDecodeError, Exception) as e:
+                print(f"Error loading car data from {json_file}: {e}")
+                continue
+    
+    except Exception as e:
+        print(f"Error loading car data: {e}")
+    
+    return cars
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -106,6 +154,31 @@ def read_root():
 @app.get("/message")
 def get_message():
     return {"message": f"Hello from the backend! {datetime.datetime.now()}"}
+
+@app.get("/cars", response_class=HTMLResponse)
+def get_cars_table(request: Request):
+    """Display all cars in a neat HTML table sorted by rating"""
+    try:
+        # Load all car data
+        cars = load_all_cars()
+        
+        # Sort by rating (highest first), then by timestamp (newest first)
+        cars.sort(key=lambda x: (x.get('user_grade', 0), x.get('file_timestamp', '')), reverse=True)
+        
+        # Calculate statistics
+        rated_cars = [car for car in cars if car.get('user_grade', 0) > 0]
+        rated_cars_count = len(rated_cars)
+        average_rating = sum(car.get('user_grade', 0) for car in rated_cars) / rated_cars_count if rated_cars_count > 0 else 0
+        
+        return templates.TemplateResponse("cars_table.html", {
+            "request": request,
+            "cars": cars,
+            "rated_cars_count": rated_cars_count,
+            "average_rating": average_rating,
+        })
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load cars table: {str(e)}")
 
 @app.post("/save-extracted-data")
 def save_extracted_data(data: ExtractedData):

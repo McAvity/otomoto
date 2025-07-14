@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otomoto Cars Collection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: #4a5568;
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        
+        tr:hover {
+            background-color: #f7fafc;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2em;
+        }
+        
+        .rating-number {
+            background: #4a5568;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .car-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.1em;
+        }
+        
+        .car-link {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .car-link:hover {
+            color: #2c5282;
+            text-decoration: underline;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #38a169;
+            font-size: 1.1em;
+        }
+        
+        .year {
+            background: #e2e8f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .location {
+            color: #718096;
+            font-size: 0.9em;
+        }
+        
+        .phone {
+            font-family: monospace;
+            background: #edf2f7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        .notes {
+            max-width: 250px;
+            font-size: 0.9em;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+        
+        .notes-preview {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .vin {
+            font-family: monospace;
+            font-size: 0.8em;
+            color: #718096;
+        }
+        
+        .last-saved {
+            font-size: 0.8em;
+            color: #a0aec0;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #718096;
+        }
+        
+        .empty-state h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+            color: #4a5568;
+        }
+        
+        @media (max-width: 768px) {
+            .stats {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                padding: 10px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+            
+            .notes {
+                max-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚗 Otomoto Cars Collection</h1>
+        <p>Your saved car listings from otomoto.pl with ratings and notes</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">{{ cars|length }}</span>
+                <span class="stat-label">Total Cars</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ rated_cars_count }}</span>
+                <span class="stat-label">Rated Cars</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ average_rating|round(1) }}</span>
+                <span class="stat-label">Avg Rating</span>
+            </div>
+        </div>
+    </div>
+
+    {% if cars %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rating</th>
+                    <th>Car</th>
+                    <th>Price</th>
+                    <th>Year</th>
+                    <th>Location</th>
+                    <th>Phone</th>
+                    <th>VIN</th>
+                    <th>Notes</th>
+                    <th>Last Saved</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                <tr>
+                    <td>
+                        <div class="rating">
+                            <div class="stars">
+                                {% for i in range(1, 6) %}
+                                    {% if i <= car.user_grade %}
+                                        ★
+                                    {% else %}
+                                        ☆
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% if car.user_grade > 0 %}
+                            <span class="rating-number">{{ car.user_grade }}/5</span>
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        {% if car.url %}
+                        <a href="{{ car.url }}" target="_blank" class="car-link">
+                            <div class="car-name">{{ car.brand }} {{ car.model }}</div>
+                        </a>
+                        {% else %}
+                        <div class="car-name">{{ car.brand }} {{ car.model }}</div>
+                        {% endif %}
+                        <div style="font-size: 0.8em; color: #718096; margin-top: 2px;">
+                            {{ car.car_name[:50] }}{% if car.car_name|length > 50 %}...{% endif %}
+                        </div>
+                        {% if car.url %}
+                        <div style="font-size: 0.7em; color: #a0aec0; margin-top: 1px;">
+                            🔗 View on otomoto.pl
+                        </div>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if car.price %}
+                        <div class="price">{{ car.price }} PLN</div>
+                        {% else %}
+                        <span style="color: #a0aec0;">—</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if car.year %}
+                        <span class="year">{{ car.year }}</span>
+                        {% else %}
+                        <span style="color: #a0aec0;">—</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if car.location %}
+                        <div class="location">{{ car.location[:30] }}{% if car.location|length > 30 %}...{% endif %}</div>
+                        {% else %}
+                        <span style="color: #a0aec0;">—</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if car.phone %}
+                        <div class="phone">{{ car.phone }}</div>
+                        {% else %}
+                        <span style="color: #a0aec0;">—</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if car.vin and car.vin != 'XXXXXXXXXXXXXXXXX' %}
+                        <div class="vin">{{ car.vin[:8] }}...</div>
+                        {% elif car.vin == 'XXXXXXXXXXXXXXXXX' %}
+                        <div class="vin" style="color: #f56565;">Hidden</div>
+                        {% else %}
+                        <span style="color: #a0aec0;">—</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if car.user_notes %}
+                        <div class="notes">
+                            <div class="notes-preview">{{ car.user_notes }}</div>
+                        </div>
+                        {% else %}
+                        <span style="color: #a0aec0;">No notes</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if car.user_timestamp %}
+                        <div class="last-saved">{{ car.user_timestamp[:10] }}</div>
+                        {% else %}
+                        <span style="color: #a0aec0;">—</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <h3>No cars found</h3>
+        <p>Start using the userscript on otomoto.pl to collect car data!</p>
+    </div>
+    {% endif %}
+</body>
+</html>
