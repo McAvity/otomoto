@@ -1024,7 +1024,7 @@
         }
     }
     
-    // Initialize the script
+    // Initialize the script with dual mode support
     async function init() {
         // Wait for page to load
         if (document.readyState === 'loading') {
@@ -1032,6 +1032,24 @@
             return;
         }
         
+        // Check URL to determine page type
+        const currentUrl = window.location.href;
+        
+        if (currentUrl.includes('/oferta/')) {
+            // Offer page - use existing functionality
+            console.log('Otomoto: Initializing offer page mode');
+            initOfferPage();
+        } else if (currentUrl.includes('/dostawcze/')) {
+            // Listing page - use new functionality
+            console.log('Otomoto: Initializing listing page mode');
+            initListingPage();
+        } else {
+            console.log('Otomoto: URL not recognized, skipping initialization');
+        }
+    }
+    
+    // Initialize offer page (existing functionality)
+    async function initOfferPage() {
         // Remove existing floating window if any
         const existing = document.getElementById('otomoto-floating-window');
         if (existing) {
@@ -1058,6 +1076,262 @@
                 }, 1000);
             }
         });
+    }
+    
+    // Initialize listing page (new functionality)
+    async function initListingPage() {
+        console.log('Otomoto: Starting listing page initialization');
+        
+        // Wait for articles to load
+        await waitForListingPageReady();
+        
+        // Fetch known cars from backend
+        const knownCars = await fetchKnownCars();
+        
+        // Process and highlight cars
+        await processListingPage(knownCars);
+        
+        console.log('Otomoto: Listing page initialization complete');
+    }
+    
+    // Wait for listing page to be ready
+    async function waitForListingPageReady() {
+        // Wait for articles to appear
+        let attempts = 0;
+        const maxAttempts = 30; // 15 seconds
+        
+        while (attempts < maxAttempts) {
+            const articles = document.querySelectorAll('article');
+            if (articles.length > 0) {
+                console.log(`Otomoto: Found ${articles.length} articles`);
+                break;
+            }
+            
+            await new Promise(resolve => setTimeout(resolve, 500));
+            attempts++;
+        }
+        
+        // Additional wait for dynamic content
+        await new Promise(resolve => setTimeout(resolve, 2000));
+    }
+    
+    // Fetch known cars from backend
+    async function fetchKnownCars() {
+        try {
+            console.log('Otomoto: Fetching known cars from backend...');
+            const response = await fetch(`${API_BASE_URL}/api/known-cars`);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            const data = await response.json();
+            console.log(`Otomoto: Retrieved ${data.known_cars.length} known cars`);
+            return data.known_cars;
+            
+        } catch (error) {
+            console.error('Otomoto: Failed to fetch known cars:', error);
+            return [];
+        }
+    }
+    
+    // Process listing page - highlight and reorder cars
+    async function processListingPage(knownCars) {
+        try {
+            console.log('Otomoto: Processing listing page...');
+            
+            // Create lookup map for quick access
+            const knownCarMap = {};
+            knownCars.forEach(car => {
+                knownCarMap[car.car_id] = car;
+            });
+            
+            // Find all articles
+            const articles = document.querySelectorAll('article');
+            console.log(`Otomoto: Processing ${articles.length} articles`);
+            
+            if (articles.length === 0) {
+                console.log('Otomoto: No articles found on page');
+                return;
+            }
+            
+            // Process each article and assign grades
+            const allArticles = [];
+            
+            articles.forEach(article => {
+                const carId = extractCarIdFromArticle(article);
+                let grade = 0; // Default for unknown cars
+                let carData = null;
+                
+                if (carId && knownCarMap[carId]) {
+                    // Known car
+                    carData = knownCarMap[carId];
+                    grade = carData.user_grade || 0;
+                    highlightKnownCar(article, carData);
+                }
+                
+                allArticles.push({ article, grade, carData, carId });
+            });
+            
+            console.log(`Otomoto: Found ${allArticles.length} total articles`);
+            
+            // Always reorder: grade 0 (unseen) at top, then known cars by grade (descending)
+            console.log('Otomoto: Reordering all articles');
+            reorderArticles(allArticles);
+            
+        } catch (error) {
+            console.error('Otomoto: Failed to process listing page:', error);
+        }
+    }
+    
+    // Extract car ID from article
+    function extractCarIdFromArticle(article) {
+        try {
+            // Look for links with car ID in href
+            const links = article.querySelectorAll('a[href*="/oferta/"]');
+            
+            for (const link of links) {
+                const href = link.getAttribute('href');
+                const match = href.match(/ID([A-Za-z0-9]+)/);
+                if (match) {
+                    return 'ID' + match[1];
+                }
+            }
+            
+            return null;
+        } catch (error) {
+            console.error('Otomoto: Failed to extract car ID:', error);
+            return null;
+        }
+    }
+    
+    // Highlight known car
+    function highlightKnownCar(article, carData) {
+        try {
+            // Add yellow background
+            article.style.backgroundColor = '#fff3cd';
+            article.style.border = '2px solid #ffeaa7';
+            article.style.borderRadius = '8px';
+            article.style.padding = '8px';
+            article.style.margin = '4px 0';
+            
+            // Add rating display
+            if (carData.user_grade > 0) {
+                addRatingDisplay(article, carData);
+            }
+            
+            // Add visual indicators based on rating
+            if (carData.user_grade >= 4) {
+                article.style.borderColor = '#00b894'; // Green for high rating
+            } else if (carData.user_grade <= 2 && carData.user_grade > 0) {
+                article.style.borderColor = '#e17055'; // Red for low rating
+            }
+            
+            // Add notes indicator
+            if (carData.has_notes) {
+                article.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
+            }
+            
+        } catch (error) {
+            console.error('Otomoto: Failed to highlight car:', error);
+        }
+    }
+    
+    // Add rating display to article
+    function addRatingDisplay(article, carData) {
+        try {
+            // Find price container
+            const priceContainer = article.querySelector('.efzkujb0, .ooa-vtik1a, [class*="price"]');
+            
+            if (priceContainer) {
+                // Create rating element
+                const ratingElement = document.createElement('div');
+                ratingElement.style.cssText = `
+                    font-size: 14px;
+                    color: #fdcb6e;
+                    margin-top: 4px;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                `;
+                
+                // Create stars
+                const stars = '★'.repeat(carData.user_grade) + '☆'.repeat(5 - carData.user_grade);
+                ratingElement.innerHTML = `
+                    <span style="color: #fdcb6e;">${stars}</span>
+                    <span style="color: #636e72; font-size: 12px;">${carData.user_grade}/5</span>
+                `;
+                
+                // Add notes indicator
+                if (carData.has_notes) {
+                    const notesIcon = document.createElement('span');
+                    notesIcon.innerHTML = '📝';
+                    notesIcon.style.fontSize = '12px';
+                    notesIcon.title = 'Has notes';
+                    ratingElement.appendChild(notesIcon);
+                }
+                
+                priceContainer.appendChild(ratingElement);
+            }
+            
+        } catch (error) {
+            console.error('Otomoto: Failed to add rating display:', error);
+        }
+    }
+    
+    // Reorder articles in DOM using JavaScript sort
+    function reorderArticles(allArticles) {
+        try {
+            if (allArticles.length === 0) {
+                console.log('Otomoto: No articles to reorder');
+                return;
+            }
+            
+            // Get the parent container from the first article's DOM element
+            const firstArticleElement = allArticles[0]?.article;
+            if (!firstArticleElement) {
+                console.log('Otomoto: No article elements found');
+                return;
+            }
+            
+            const parent = $(firstArticleElement).parent();
+            if (parent.length === 0) {
+                console.log('Otomoto: No parent container found');
+                return;
+            }
+            
+            console.log(`Otomoto: Reordering ${allArticles.length} articles`);
+            console.log('Otomoto: Articles before sorting:', allArticles.map(item => `Grade ${item.grade} - ${item.carId || 'Unknown'}`));
+            
+            // Sort articles: grade 0 (unseen) always first, then by grade descending
+            allArticles.sort((a, b) => {
+                // If one has grade 0 and other doesn't, grade 0 comes first
+                if (a.grade === 0 && b.grade !== 0) return -1;
+                if (a.grade !== 0 && b.grade === 0) return 1;
+                
+                // If both are grade 0 (both unseen), maintain original order
+                if (a.grade === 0 && b.grade === 0) return 0;
+                
+                // Both have grades > 0, sort descending (higher grades first)
+                return b.grade - a.grade;
+            });
+
+            console.log('Otomoto: Articles after sorting:', allArticles.map(item => `Grade ${item.grade} - ${item.carId || 'Unknown'}`));
+
+            parent.empty();
+            
+            allArticles.forEach(item => {
+                if (item.article) {
+                    parent.append(item.article);
+                }
+            });
+
+            console.log(`Otomoto: Successfully reordered ${allArticles.length} articles with jQuery`);
+                        
+        } catch (error) {
+            console.error('Otomoto: Failed to reorder articles:', error);
+        }
     }
     
     // Start the script

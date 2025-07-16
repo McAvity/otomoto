@@ -180,6 +180,32 @@ def get_cars_table(request: Request):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load cars table: {str(e)}")
 
+@app.get("/api/known-cars")
+def get_known_cars():
+    """Get list of known car IDs with metadata for userscript listing page highlighting"""
+    try:
+        # Load all car data
+        cars = load_all_cars()
+        
+        # Extract only the needed fields for listing page
+        known_cars = []
+        for car in cars:
+            car_id = car.get('car_id', '')
+            if car_id:
+                known_cars.append({
+                    'car_id': car_id,
+                    'user_grade': car.get('user_grade', 0),
+                    'has_notes': bool(car.get('user_notes', '').strip()),
+                    'last_saved': car.get('file_timestamp', ''),
+                    'car_name': car.get('car_name', ''),
+                    'price': car.get('price', '')
+                })
+        
+        return {"known_cars": known_cars}
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load known cars: {str(e)}")
+
 @app.post("/save-extracted-data")
 def save_extracted_data(data: ExtractedData):
     try:
