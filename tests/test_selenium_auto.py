@@ -190,7 +190,7 @@ class TestSeleniumAuto:
         assert "otomoto-floating-window" in content
         assert "127.0.0.1:8000" in content
         assert "createFloatingWindow" in content
-        assert "fetchMessage" in content
+        assert "initOfferPage" in content or "initListingPage" in content
         print("✅ Required functions present")
         
         # Check syntax balance
