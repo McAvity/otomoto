@@ -192,10 +192,12 @@ def get_known_cars():
         for car in cars:
             car_id = car.get('car_id', '')
             if car_id:
+                user_notes = car.get('user_notes', '').strip().replace('\n', '<br/>')
                 known_cars.append({
                     'car_id': car_id,
                     'user_grade': car.get('user_grade', 0),
-                    'has_notes': bool(car.get('user_notes', '').strip()),
+                    'has_notes': bool(user_notes),
+                    'user_notes': user_notes,
                     'last_saved': car.get('file_timestamp', ''),
                     'car_name': car.get('car_name', ''),
                     'price': car.get('price', '')

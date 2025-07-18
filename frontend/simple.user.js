@@ -1061,7 +1061,10 @@
             });
             
             // Find all articles
-            const $articles = $('article');
+            // Find all articles that contain a <section> tag
+            const $articles = $('article').filter(function() {
+                return $(this).find('section').length > 0;
+            });
             console.log(`Otomoto: Processing ${$articles.length} articles`);
             
             if ($articles.length === 0) {
@@ -1166,13 +1169,23 @@
                 // Create stars
                 const stars = '★'.repeat(carData.user_grade) + '☆'.repeat(5 - carData.user_grade);
                 
+                // Prepare user notes display
+                let notesDisplay = '';
+                if (carData.user_notes) {
+                    // Truncate long notes for display
+                    const truncatedNotes = carData.user_notes.length > 100
+                        ? carData.user_notes.substring(0, 100) + '...'
+                        : carData.user_notes;
+                    notesDisplay = `<div style="font-size: 11px; color: #636e72; margin-top: 2px; font-style: italic;">"${truncatedNotes}"</div>`;
+                }
+                
                 // Create rating element
                 const ratingHtml = `
                     <div style="font-size: 14px; color: #fdcb6e; margin-top: 4px; font-weight: bold; display: flex; align-items: center; gap: 4px;">
                         <span style="color: #fdcb6e;">${stars}</span>
                         <span style="color: #636e72; font-size: 12px;">${carData.user_grade}/5</span>
-                        ${carData.has_notes ? '<span style="font-size: 12px;" title="Has notes">📝</span>' : ''}
                     </div>
+                    ${notesDisplay}
                 `;
                 
                 $priceContainer.append(ratingHtml);
@@ -1190,20 +1203,8 @@
                 console.log('Otomoto: No articles to reorder');
                 return;
             }
-            
-            // Get the parent container from the first article's DOM element
-            const firstArticleElement = allArticles[0]?.article;
-            if (!firstArticleElement) {
-                console.log('Otomoto: No article elements found');
-                return;
-            }
-            
-            const parent = $(firstArticleElement).parent();
-            if (parent.length === 0) {
-                console.log('Otomoto: No parent container found');
-                return;
-            }
-            
+
+            const parent = $(allArticles[0]?.article).parent();
             console.log(`Otomoto: Reordering ${allArticles.length} articles`);
             console.log('Otomoto: Articles before sorting:', allArticles.map(item => `Grade ${item.grade} - ${item.carId || 'Unknown'}`));
             
