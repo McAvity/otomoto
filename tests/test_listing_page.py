@@ -84,7 +84,6 @@ class TestListingPage:
                 assert "car_id" in car
                 assert "user_grade" in car
                 assert "has_notes" in car
-                assert "last_saved" in car
                 assert "car_name" in car
                 assert "price" in car
                 

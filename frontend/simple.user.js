@@ -264,8 +264,7 @@
                 console.log('Loaded existing user data from:', data.filename);
                 return {
                     user_notes: data.user_notes || '',
-                    user_grade: data.user_grade || 0,
-                    last_saved: data.last_saved
+                    user_grade: data.user_grade || 0
                 };
             } else {
                 console.log('No existing data found for car ID:', carId);
@@ -775,9 +774,6 @@
             const phone = extractedCarData.phone || 'No phone';
             const vin = extractedCarData.vin || 'No VIN';
             
-            const lastSavedText = existingUserData.last_saved ? 
-                `<br><em>Last saved: ${new Date(existingUserData.last_saved).toLocaleString()}</em>` : '';
-            
             contentElement.innerHTML = `
                 <div style="color: green; font-weight: bold;">✅ Data Extracted!</div>
                 <div style="font-size: 11px; margin-top: 5px; background: #f8f9fa; padding: 5px; border-radius: 3px;">
@@ -786,7 +782,7 @@
                     📞 ${phone}<br>
                     🔢 ${vin}<br>
                     📍 ${location}<br>
-                    <em>Found ${Object.keys(extractedCarData).length} fields</em>${lastSavedText}
+                    <em>Found ${Object.keys(extractedCarData).length} fields</em>
                 </div>
             `;
             
@@ -816,9 +812,7 @@
                 console.log('No extracted data to auto-save');
                 return;
             }
-            
-            const timestamp = new Date().toISOString();
-            
+
             // Preserve existing user notes and grade
             const notes = existingUserData.user_notes || '';
             const grade = existingUserData.user_grade || 0;
@@ -827,14 +821,12 @@
             const finalData = {
                 ...extractedCarData,
                 user_notes: notes,
-                user_grade: grade,
-                user_timestamp: timestamp
+                user_grade: grade
             };
             
             // Prepare data for backend
             const dataPayload = {
                 url: window.location.href,
-                timestamp: timestamp,
                 data: finalData
             };
             
@@ -887,20 +879,17 @@
             
             const notes = $('#otomoto-notes').val().trim();
             const grade = currentRating;
-            const timestamp = new Date().toISOString();
             
             // Add user input to extracted data
             const finalData = {
                 ...extractedCarData,
                 user_notes: notes,
-                user_grade: grade,
-                user_timestamp: timestamp
+                user_grade: grade
             };
             
             // Prepare data for backend
             const dataPayload = {
                 url: window.location.href,
-                timestamp: timestamp,
                 data: finalData
             };
             

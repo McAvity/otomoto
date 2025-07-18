@@ -181,7 +181,7 @@ class TestManualVerification:
                 
                 # Check structure of each car entry
                 for car in data["known_cars"][:3]:  # Check first 3 cars
-                    required_fields = ["car_id", "user_grade", "has_notes", "last_saved", "car_name", "price"]
+                    required_fields = ["car_id", "user_grade", "has_notes", "car_name", "price"]
                     for field in required_fields:
                         assert field in car, f"Missing field {field} in car data"
                     

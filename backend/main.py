@@ -20,13 +20,12 @@ HTML_DIR.mkdir(exist_ok=True)
 # Jinja2 templates
 templates = Jinja2Templates(directory="templates")
 
-# In-memory index for fast car data lookup: car_id -> (filename, last_saved)
-CAR_INDEX: Dict[str, tuple] = {}
+# In-memory index for fast car data lookup: car_id -> filename
+CAR_INDEX: Dict[str, str] = {}
 
 # Pydantic models
 class ExtractedData(BaseModel):
     url: str
-    timestamp: str
     data: Dict[str, Any]
 
 class HTMLData(BaseModel):
@@ -66,14 +65,12 @@ def rebuild_index():
                     # Old format: extract from URL
                     url = data.get('url', '')
                     car_id = extract_car_id_from_url(url)
-                
-                last_saved = data.get('timestamp', '')
-                
+
                 if car_id:
                     # For new format, we can directly use the file since it's already "latest"
                     # For old format, keep only the latest file for each car_id
-                    if car_id not in CAR_INDEX or last_saved > CAR_INDEX[car_id][1]:
-                        CAR_INDEX[car_id] = (json_file.name, last_saved)
+                    if car_id not in CAR_INDEX:
+                        CAR_INDEX[car_id] = (json_file.name)
                         
             except (json.JSONDecodeError, KeyError) as e:
                 print(f"Skipping corrupted file {json_file}: {e}")
@@ -85,11 +82,11 @@ def rebuild_index():
         print(f"Failed to rebuild index: {e}")
         CAR_INDEX.clear()
 
-def update_index(car_id: str, filename: str, timestamp: str):
+def update_index(car_id: str, filename: str):
     """Update the index with new car data"""
     global CAR_INDEX
     if car_id:
-        CAR_INDEX[car_id] = (filename, timestamp)
+        CAR_INDEX[car_id] = filename
 
 def load_all_cars() -> List[Dict[str, Any]]:
     """Load all car data from JSON files"""
@@ -112,7 +109,6 @@ def load_all_cars() -> List[Dict[str, Any]]:
                 
                 # Add metadata
                 car_data['car_id'] = car_id
-                car_data['file_timestamp'] = file_data.get('timestamp', '')
                 car_data['url'] = file_data.get('url', '')
                 
                 # Ensure numeric rating
@@ -162,8 +158,8 @@ def get_cars_table(request: Request):
         # Load all car data
         cars = load_all_cars()
         
-        # Sort by rating (highest first), then by timestamp (newest first)
-        cars.sort(key=lambda x: (x.get('user_grade', 0), x.get('file_timestamp', '')), reverse=True)
+        # Sort by rating (highest first)
+        cars.sort(key=lambda x: (x.get('user_grade', 0)), reverse=True)
         
         # Calculate statistics
         rated_cars = [car for car in cars if car.get('user_grade', 0) > 0]
@@ -198,7 +194,6 @@ def get_known_cars():
                     'user_grade': car.get('user_grade', 0),
                     'has_notes': bool(user_notes),
                     'user_notes': user_notes,
-                    'last_saved': car.get('file_timestamp', ''),
                     'car_name': car.get('car_name', ''),
                     'price': car.get('price', '')
                 })
@@ -225,7 +220,7 @@ def save_extracted_data(data: ExtractedData):
             json.dump(data.dict(), f, ensure_ascii=False, indent=2)
         
         # Update index with new data
-        update_index(car_id, filename, data.timestamp)
+        update_index(car_id, filename)
         
         return {
             "status": "success",
@@ -275,7 +270,6 @@ def get_existing_data(car_id: str):
                     "status": "found",
                     "user_notes": user_data.get('user_notes', ''),
                     "user_grade": user_data.get('user_grade', 0),
-                    "last_saved": data.get('timestamp', ''),
                     "filename": direct_filename
                 }
             except (json.JSONDecodeError, KeyError):
@@ -297,7 +291,6 @@ def get_existing_data(car_id: str):
                         "status": "found",
                         "user_notes": user_data.get('user_notes', ''),
                         "user_grade": user_data.get('user_grade', 0),
-                        "last_saved": data.get('timestamp', ''),
                         "filename": filename
                     }
                 except (json.JSONDecodeError, KeyError):
