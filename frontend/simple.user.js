@@ -212,14 +212,11 @@
     }
     
     function highlightStars(rating) {
-        const stars = document.querySelectorAll('[data-rating]');
-        stars.forEach((star, index) => {
+        $('[data-rating]').each(function(index) {
             if (index < rating) {
-                star.style.color = '#ffc107';
-                star.innerHTML = '★';
+                $(this).css('color', '#ffc107').html('★');
             } else {
-                star.style.color = '#ddd';
-                star.innerHTML = '☆';
+                $(this).css('color', '#ddd').html('☆');
             }
         });
     }
@@ -229,14 +226,11 @@
     }
     
     function updateStarDisplay() {
-        const stars = document.querySelectorAll('[data-rating]');
-        stars.forEach((star, index) => {
+        $('[data-rating]').each(function(index) {
             if (index < currentRating) {
-                star.style.color = '#ffc107';
-                star.innerHTML = '★';
+                $(this).css('color', '#ffc107').html('★');
             } else {
-                star.style.color = '#ddd';
-                star.innerHTML = '☆';
+                $(this).css('color', '#ddd').html('☆');
             }
         });
     }
@@ -305,8 +299,9 @@
         extractedData.negotiable = statusParts.find(part => part.includes('negocjacji')) || '';
         
         // Extract parameters (mileage, fuel, transmission, etc.)
-        const parameterElements = document.querySelectorAll(extractionConfig.mileage);
-        const parameters = Array.from(parameterElements).map(el => el.textContent.trim());
+        const parameters = $(extractionConfig.mileage).map(function() {
+            return $(this).text().trim();
+        }).get();
         
         // Identify parameters by content patterns
         extractedData.mileage = parameters.find(p => p.includes('km') || /^\d+\s*\d*\s*\d*\s*km?$/.test(p)) || '';
@@ -329,8 +324,9 @@
         
         // If brand/model extraction failed, fall back to original method
         if (!extractedData.brand || !extractedData.model) {
-            const brandModelElements = document.querySelectorAll(extractionConfig.brand);
-            const brandModelTexts = Array.from(brandModelElements).map(el => el.textContent.trim());
+            const brandModelTexts = $(extractionConfig.brand).map(function() {
+                return $(this).text().trim();
+            }).get();
             
             if (!extractedData.brand) {
                 extractedData.brand = brandModelTexts.find(text => /mercedes|bmw|audi|volkswagen|ford|opel|citroen|renault|peugeot|fiat|iveco|man|volvo|scania|daf/i.test(text)) || '';
@@ -344,117 +340,52 @@
         return extractedData;
     }
     
-    // Helper function to get text content safely
+    // Helper function to get text content safely using jQuery
     function getTextContent(selector) {
         try {
-            const element = document.querySelector(selector);
-            return element ? element.textContent.trim() : '';
+            return $(selector).first().text().trim() || '';
         } catch (error) {
             console.warn(`Failed to extract data for selector ${selector}:`, error);
             return '';
         }
     }
     
-    // Helper function to find value next to a specific label using efficient CSS selectors
+    // Helper function to find value next to a specific label using jQuery
     function getValueByLabel(labelText) {
         try {
             console.log(`Looking for label: "${labelText}"`);
             
-            // Check if jQuery is available, if not use native methods
-            const $ = window.jQuery || window.$;
+            // Find <p> elements that contain the exact label text
+            const $labelParagraphs = $('p').filter(function() {
+                return $(this).text().trim() === labelText;
+            });
             
-            if ($) {
-                // Use jQuery for more efficient lookups
-                console.log('Using jQuery for CSS lookups');
+            if ($labelParagraphs.length > 0) {
+                console.log(`Found ${$labelParagraphs.length} <p> element(s) with label "${labelText}"`);
                 
-                // Find <p> elements that contain the exact label text
-                const $labelParagraphs = $('p').filter(function() {
-                    return $(this).text().trim() === labelText;
-                });
-                
-                if ($labelParagraphs.length > 0) {
-                    console.log(`Found ${$labelParagraphs.length} <p> element(s) with label "${labelText}"`);
+                // Try each matching paragraph
+                for (let i = 0; i < $labelParagraphs.length; i++) {
+                    const $labelP = $labelParagraphs.eq(i);
                     
-                    // Try each matching paragraph
-                    for (let i = 0; i < $labelParagraphs.length; i++) {
-                        const $labelP = $labelParagraphs.eq(i);
-                        
-                        // Strategy 1: Next sibling <p>
-                        const $nextP = $labelP.next('p');
-                        if ($nextP.length > 0) {
-                            const valueText = $nextP.text().trim();
-                            if (valueText) {
-                                console.log(`Found ${labelText} value in next <p> (jQuery):`, valueText);
-                                return valueText;
-                            }
-                        }
-                        
-                        // Strategy 2: Any following sibling <p>
-                        const $followingPs = $labelP.nextAll('p').first();
-                        if ($followingPs.length > 0) {
-                            const valueText = $followingPs.text().trim();
-                            if (valueText) {
-                                console.log(`Found ${labelText} value in following <p> (jQuery):`, valueText);
-                                return valueText;
-                            }
-                        }
-                        
-                        // Strategy 3: Next <p> in parent container
-                        const $parentNextP = $labelP.parent().next().find('p').first();
-                        if ($parentNextP.length > 0) {
-                            const valueText = $parentNextP.text().trim();
-                            if (valueText) {
-                                console.log(`Found ${labelText} value in parent's next <p> (jQuery):`, valueText);
-                                return valueText;
-                            }
-                        }
+                    // Strategy 1: Next sibling <p>
+                    const valueText = $labelP.next('p').text().trim();
+                    if (valueText) {
+                        console.log(`Found ${labelText} value in next <p>:`, valueText);
+                        return valueText;
                     }
-                }
-            } else {
-                // Fallback to native DOM methods with efficient CSS selectors
-                console.log('Using native DOM for CSS lookups');
-                
-                // Use more specific CSS selector to find potential label elements
-                const labelParagraphs = document.querySelectorAll('p:not(script):not(style)');
-                
-                for (const paragraph of labelParagraphs) {
-                    const text = paragraph.textContent.trim();
                     
-                    // Check if this <p> contains our exact label
-                    if (text === labelText) {
-                        console.log(`Found exact label "${labelText}" in <p> element`);
-                        
-                        // Strategy 1: CSS selector for next sibling <p>
-                        const nextP = paragraph.parentElement.querySelector(`p:has(+ p), p ~ p`);
-                        if (nextP && nextP !== paragraph) {
-                            const valueText = nextP.textContent.trim();
-                            if (valueText && valueText !== labelText) {
-                                console.log(`Found ${labelText} value via CSS selector:`, valueText);
-                                return valueText;
-                            }
-                        }
-                        
-                        // Strategy 2: Check immediate next sibling <p>
-                        let nextElement = paragraph.nextElementSibling;
-                        if (nextElement && nextElement.tagName === 'P') {
-                            const valueText = nextElement.textContent.trim();
-                            if (valueText) {
-                                console.log(`Found ${labelText} value in next <p>:`, valueText);
-                                return valueText;
-                            }
-                        }
-                        
-                        // Strategy 3: Look for next <p> in parent's children using CSS
-                        if (paragraph.parentElement) {
-                            const nextPInParent = paragraph.parentElement.querySelector(`p:nth-child(${Array.from(paragraph.parentElement.children).indexOf(paragraph) + 2})`);
-                            if (nextPInParent && nextPInParent.tagName === 'P') {
-                                const valueText = nextPInParent.textContent.trim();
-                                if (valueText) {
-                                    console.log(`Found ${labelText} value in parent's next <p>:`, valueText);
-                                    return valueText;
-                                }
-                            }
-                        }
+                    // Strategy 2: Any following sibling <p>
+                    const followingText = $labelP.nextAll('p').first().text().trim();
+                    if (followingText) {
+                        console.log(`Found ${labelText} value in following <p>:`, followingText);
+                        return followingText;
+                    }
+                    
+                    // Strategy 3: Next <p> in parent container
+                    const parentNextText = $labelP.parent().next().find('p').first().text().trim();
+                    if (parentNextText) {
+                        console.log(`Found ${labelText} value in parent's next <p>:`, parentNextText);
+                        return parentNextText;
                     }
                 }
             }
@@ -475,15 +406,16 @@
             // Wait a bit more for buttons to be fully loaded
             await new Promise(resolve => setTimeout(resolve, 1000));
             
-            // Look for the "Wyświetl numer" button with more comprehensive search
-            const buttons = document.querySelectorAll('button, a, div[role="button"]');
+            // Look for the "Wyświetl numer" button with jQuery
+            const $buttons = $('button, a, div[role="button"]');
             let showNumberButton = null;
             
-            console.log(`Found ${buttons.length} clickable elements to check`);
+            console.log(`Found ${$buttons.length} clickable elements to check`);
             
-            for (const button of buttons) {
-                const buttonText = button.textContent.trim().toLowerCase();
-                const ariaLabel = (button.getAttribute('aria-label') || '').toLowerCase();
+            $buttons.each(function() {
+                const $button = $(this);
+                const buttonText = $button.text().trim().toLowerCase();
+                const ariaLabel = ($button.attr('aria-label') || '').toLowerCase();
                 
                 // Check for various forms of "show number" text
                 if ((buttonText.includes('wyświetl') && buttonText.includes('numer')) ||
@@ -493,11 +425,11 @@
                     ariaLabel.includes('phone') ||
                     buttonText.includes('show number')) {
                     
-                    showNumberButton = button;
+                    showNumberButton = this;
                     console.log('Found phone button:', buttonText, 'aria-label:', ariaLabel);
-                    break;
+                    return false; // Break out of each loop
                 }
-            }
+            });
             
             // Also try more specific selectors for otomoto
             if (!showNumberButton) {
@@ -514,9 +446,9 @@
                 
                 for (const selector of selectors) {
                     try {
-                        const element = document.querySelector(selector);
-                        if (element && element.textContent.toLowerCase().includes('wyświetl')) {
-                            showNumberButton = element;
+                        const $element = $(selector).first();
+                        if ($element.length && $element.text().toLowerCase().includes('wyświetl')) {
+                            showNumberButton = $element[0];
                             console.log('Found phone button via selector:', selector);
                             break;
                         }
@@ -562,9 +494,8 @@
                 
                 for (const selector of phoneSelectors) {
                     try {
-                        const phoneElement = document.querySelector(selector);
-                        if (phoneElement) {
-                            const phoneText = phoneElement.textContent.trim();
+                        const phoneText = $(selector).first().text().trim();
+                        if (phoneText) {
                             console.log(`Checking selector ${selector}:`, phoneText);
                             
                             // Look for phone number pattern (improved regex)
@@ -618,15 +549,16 @@
             // Wait a bit more for links to be fully loaded
             await new Promise(resolve => setTimeout(resolve, 1000));
             
-            // Look for the "Wyświetl VIN" link with comprehensive search
-            const links = document.querySelectorAll('a, button, div[role="button"], span[role="button"]');
+            // Look for the "Wyświetl VIN" link with jQuery
+            const $links = $('a, button, div[role="button"], span[role="button"]');
             let showVinLink = null;
             
-            console.log(`Found ${links.length} clickable elements to check for VIN`);
+            console.log(`Found ${$links.length} clickable elements to check for VIN`);
             
-            for (const link of links) {
-                const linkText = link.textContent.trim().toLowerCase();
-                const ariaLabel = (link.getAttribute('aria-label') || '').toLowerCase();
+            $links.each(function() {
+                const $link = $(this);
+                const linkText = $link.text().trim().toLowerCase();
+                const ariaLabel = ($link.attr('aria-label') || '').toLowerCase();
                 
                 // Check for various forms of "show VIN" text
                 if ((linkText.includes('wyświetl') && linkText.includes('vin')) ||
@@ -635,11 +567,11 @@
                     ariaLabel.includes('wyświetl vin') ||
                     ariaLabel.includes('show vin')) {
                     
-                    showVinLink = link;
+                    showVinLink = this;
                     console.log('Found VIN link:', linkText, 'aria-label:', ariaLabel);
-                    break;
+                    return false; // Break out of each loop
                 }
-            }
+            });
             
             // Also try specific selectors for VIN
             if (!showVinLink) {
@@ -654,9 +586,9 @@
                 
                 for (const selector of selectors) {
                     try {
-                        const element = document.querySelector(selector);
-                        if (element && element.textContent.toLowerCase().includes('wyświetl')) {
-                            showVinLink = element;
+                        const $element = $(selector).first();
+                        if ($element.length && $element.text().toLowerCase().includes('wyświetl')) {
+                            showVinLink = $element[0];
                             console.log('Found VIN link via selector:', selector);
                             break;
                         }
@@ -702,9 +634,8 @@
                 
                 for (const selector of vinSelectors) {
                     try {
-                        const vinElement = document.querySelector(selector);
-                        if (vinElement) {
-                            const vinText = vinElement.textContent.trim();
+                        const vinText = $(selector).first().text().trim();
+                        if (vinText) {
                             console.log(`Checking VIN selector ${selector}:`, vinText);
                             
                             // Look for VIN pattern (17 alphanumeric characters)
@@ -828,9 +759,8 @@
             const existingUserData = await loadExistingUserData();
             
             // Populate UI with existing data
-            const notesTextArea = document.getElementById('otomoto-notes');
-            if (notesTextArea && existingUserData.user_notes) {
-                notesTextArea.value = existingUserData.user_notes;
+            if (existingUserData.user_notes) {
+                $('#otomoto-notes').val(existingUserData.user_notes);
             }
             
             if (existingUserData.user_grade > 0) {
@@ -861,10 +791,8 @@
             `;
             
             // Show retry button if phone or VIN extraction failed
-            const retryButton = document.getElementById('otomoto-retry-button');
-            if (retryButton && ((phone === 'No phone') || (vin === 'No VIN'))) {
-                retryButton.style.display = 'block';
-                retryButton.textContent = 'Retry Phone/VIN Extraction';
+            if ((phone === 'No phone') || (vin === 'No VIN')) {
+                $('#otomoto-retry-button').show().text('Retry Phone/VIN Extraction');
             }
             
             // Automatically save the extracted data
@@ -921,13 +849,9 @@
             await sendToBackend('/save-html', htmlPayload);
             
             // Update the UI to show auto-save success
-            const contentElement = document.getElementById('otomoto-message-content');
-            if (contentElement) {
-                const autoSaveDiv = contentElement.querySelector('[style*="Auto-saving"]');
-                if (autoSaveDiv) {
-                    autoSaveDiv.innerHTML = '✅ Auto-saved successfully!';
-                    autoSaveDiv.style.color = '#28a745';
-                }
+            const $autoSaveDiv = $('#otomoto-message-content').find('[style*="Auto-saving"]');
+            if ($autoSaveDiv.length) {
+                $autoSaveDiv.html('✅ Auto-saved successfully!').css('color', '#28a745');
             }
             
             console.log('Auto-save completed successfully');
@@ -936,38 +860,32 @@
             console.error('Auto-save failed:', error);
             
             // Update the UI to show auto-save failure
-            const contentElement = document.getElementById('otomoto-message-content');
-            if (contentElement) {
-                const autoSaveDiv = contentElement.querySelector('[style*="Auto-saving"]');
-                if (autoSaveDiv) {
-                    autoSaveDiv.innerHTML = '❌ Auto-save failed';
-                    autoSaveDiv.style.color = '#dc3545';
-                }
+            const $autoSaveDiv = $('#otomoto-message-content').find('[style*="Auto-saving"]');
+            if ($autoSaveDiv.length) {
+                $autoSaveDiv.html('❌ Auto-save failed').css('color', '#dc3545');
             }
         }
     }
     
     // Save notes and grade function
     async function saveNotesAndGrade() {
-        const contentElement = document.getElementById('otomoto-message-content');
-        const notesTextArea = document.getElementById('otomoto-notes');
-        const saveButton = document.getElementById('otomoto-save-button');
+        const $contentElement = $('#otomoto-message-content');
+        const $saveButton = $('#otomoto-save-button');
         
         if (!extractedCarData) {
-            contentElement.innerHTML = `
+            $contentElement.html(`
                 <div style="color: red; font-weight: bold;">❌ No data to save</div>
                 <div style="font-size: 12px; margin-top: 5px;">
                     Please wait for data extraction to complete.
                 </div>
-            `;
+            `);
             return;
         }
         
         try {
-            saveButton.disabled = true;
-            saveButton.textContent = 'Updating...';
+            $saveButton.prop('disabled', true).text('Updating...');
             
-            const notes = notesTextArea.value.trim();
+            const notes = $('#otomoto-notes').val().trim();
             const grade = currentRating;
             const timestamp = new Date().toISOString();
             
@@ -1000,27 +918,26 @@
             const gradeText = grade > 0 ? `⭐ ${grade}/5 stars` : 'No rating';
             const notesText = notes ? `📝 Notes saved` : 'No notes';
             
-            contentElement.innerHTML = `
+            $contentElement.html(`
                 <div style="color: green; font-weight: bold;">✅ Saved Successfully!</div>
                 <div style="font-size: 11px; margin-top: 5px; background: #f8f9fa; padding: 5px; border-radius: 3px;">
                     ${gradeText}<br>
                     ${notesText}<br>
                     <em>File: ${dataResult.filename || 'saved'}</em>
                 </div>
-            `;
+            `);
             
-            saveButton.textContent = '✅ Updated';
+            $saveButton.text('✅ Updated');
             
         } catch (error) {
-            contentElement.innerHTML = `
+            $contentElement.html(`
                 <div style="color: red; font-weight: bold;">❌ Save Failed</div>
                 <div style="font-size: 12px; margin-top: 5px;">
                     Error: ${error.message}
                 </div>
-            `;
+            `);
             
-            saveButton.disabled = false;
-            saveButton.textContent = 'Update Notes & Grade';
+            $saveButton.prop('disabled', false).text('Update Notes & Grade');
         }
     }
     
@@ -1051,10 +968,7 @@
     // Initialize offer page (existing functionality)
     async function initOfferPage() {
         // Remove existing floating window if any
-        const existing = document.getElementById('otomoto-floating-window');
-        if (existing) {
-            existing.remove();
-        }
+        $('#otomoto-floating-window').remove();
         
         // Create and add floating window
         const floatingWindow = createFloatingWindow();
@@ -1101,9 +1015,9 @@
         const maxAttempts = 30; // 15 seconds
         
         while (attempts < maxAttempts) {
-            const articles = document.querySelectorAll('article');
-            if (articles.length > 0) {
-                console.log(`Otomoto: Found ${articles.length} articles`);
+            const $articles = $('article');
+            if ($articles.length > 0) {
+                console.log(`Otomoto: Found ${$articles.length} articles`);
                 break;
             }
             
@@ -1147,10 +1061,10 @@
             });
             
             // Find all articles
-            const articles = document.querySelectorAll('article');
-            console.log(`Otomoto: Processing ${articles.length} articles`);
+            const $articles = $('article');
+            console.log(`Otomoto: Processing ${$articles.length} articles`);
             
-            if (articles.length === 0) {
+            if ($articles.length === 0) {
                 console.log('Otomoto: No articles found on page');
                 return;
             }
@@ -1158,7 +1072,8 @@
             // Process each article and assign grades
             const allArticles = [];
             
-            articles.forEach(article => {
+            $articles.each(function() {
+                const article = this;
                 const carId = extractCarIdFromArticle(article);
                 let grade = 0; // Default for unknown cars
                 let carData = null;
@@ -1188,10 +1103,10 @@
     function extractCarIdFromArticle(article) {
         try {
             // Look for links with car ID in href
-            const links = article.querySelectorAll('a[href*="/oferta/"]');
+            const $links = $(article).find('a[href*="/oferta/"]');
             
-            for (const link of links) {
-                const href = link.getAttribute('href');
+            for (let i = 0; i < $links.length; i++) {
+                const href = $links.eq(i).attr('href');
                 const match = href.match(/ID([A-Za-z0-9]+)/);
                 if (match) {
                     return 'ID' + match[1];
@@ -1208,12 +1123,16 @@
     // Highlight known car
     function highlightKnownCar(article, carData) {
         try {
-            // Add yellow background
-            article.style.backgroundColor = '#fff3cd';
-            article.style.border = '2px solid #ffeaa7';
-            article.style.borderRadius = '8px';
-            article.style.padding = '8px';
-            article.style.margin = '4px 0';
+            const $article = $(article);
+            
+            // Add yellow background and styling
+            $article.css({
+                'background-color': '#fff3cd',
+                'border': '2px solid #ffeaa7',
+                'border-radius': '8px',
+                'padding': '8px',
+                'margin': '4px 0'
+            });
             
             // Add rating display
             if (carData.user_grade > 0) {
@@ -1222,14 +1141,14 @@
             
             // Add visual indicators based on rating
             if (carData.user_grade >= 4) {
-                article.style.borderColor = '#00b894'; // Green for high rating
+                $article.css('border-color', '#00b894'); // Green for high rating
             } else if (carData.user_grade <= 2 && carData.user_grade > 0) {
-                article.style.borderColor = '#e17055'; // Red for low rating
+                $article.css('border-color', '#e17055'); // Red for low rating
             }
             
             // Add notes indicator
             if (carData.has_notes) {
-                article.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
+                $article.css('box-shadow', '0 0 10px rgba(0,0,0,0.1)');
             }
             
         } catch (error) {
@@ -1241,38 +1160,22 @@
     function addRatingDisplay(article, carData) {
         try {
             // Find price container
-            const priceContainer = article.querySelector('.efzkujb0, .ooa-vtik1a, [class*="price"]');
+            const $priceContainer = $(article).find('.efzkujb0, .ooa-vtik1a, [class*="price"]').first();
             
-            if (priceContainer) {
-                // Create rating element
-                const ratingElement = document.createElement('div');
-                ratingElement.style.cssText = `
-                    font-size: 14px;
-                    color: #fdcb6e;
-                    margin-top: 4px;
-                    font-weight: bold;
-                    display: flex;
-                    align-items: center;
-                    gap: 4px;
-                `;
-                
+            if ($priceContainer.length) {
                 // Create stars
                 const stars = '★'.repeat(carData.user_grade) + '☆'.repeat(5 - carData.user_grade);
-                ratingElement.innerHTML = `
-                    <span style="color: #fdcb6e;">${stars}</span>
-                    <span style="color: #636e72; font-size: 12px;">${carData.user_grade}/5</span>
+                
+                // Create rating element
+                const ratingHtml = `
+                    <div style="font-size: 14px; color: #fdcb6e; margin-top: 4px; font-weight: bold; display: flex; align-items: center; gap: 4px;">
+                        <span style="color: #fdcb6e;">${stars}</span>
+                        <span style="color: #636e72; font-size: 12px;">${carData.user_grade}/5</span>
+                        ${carData.has_notes ? '<span style="font-size: 12px;" title="Has notes">📝</span>' : ''}
+                    </div>
                 `;
                 
-                // Add notes indicator
-                if (carData.has_notes) {
-                    const notesIcon = document.createElement('span');
-                    notesIcon.innerHTML = '📝';
-                    notesIcon.style.fontSize = '12px';
-                    notesIcon.title = 'Has notes';
-                    ratingElement.appendChild(notesIcon);
-                }
-                
-                priceContainer.appendChild(ratingElement);
+                $priceContainer.append(ratingHtml);
             }
             
         } catch (error) {
