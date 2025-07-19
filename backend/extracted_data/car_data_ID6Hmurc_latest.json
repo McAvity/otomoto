@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/opel-vivaro-ID6Hmurc.html",
-  "timestamp": "2025-07-17T14:50:53.220Z",
   "data": {
     "car_name": "Opel VIVARO",
     "price": "55 555",
@@ -19,7 +18,6 @@
     "model": "VIVARO",
     "year": "2010",
     "user_notes": "",
-    "user_grade": 2,
-    "user_timestamp": "2025-07-17T14:50:53.220Z"
+    "user_grade": 2
   }
 }

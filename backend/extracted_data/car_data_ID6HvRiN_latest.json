@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/fiat-ducato-possl-ID6HvRiN.html",
-  "timestamp": "2025-07-18T10:06:55.418Z",
   "data": {
     "car_name": "Fiat Ducato Possl",
     "price": "62 500",
@@ -19,7 +18,6 @@
     "model": "Ducato Possl",
     "year": "2006",
     "user_notes": "lozko wzdluz",
-    "user_grade": 4,
-    "user_timestamp": "2025-07-18T10:06:55.418Z"
+    "user_grade": 4
   }
 }

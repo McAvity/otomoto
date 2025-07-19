@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/citroen-c8-ID6HvAGI.html",
-  "timestamp": "2025-07-16T22:01:25.299Z",
   "data": {
     "car_name": "Citroën C8",
     "price": "9 900",
@@ -19,7 +18,6 @@
     "model": "C8",
     "year": "2005",
     "user_notes": "",
-    "user_grade": 1,
-    "user_timestamp": "2025-07-16T22:01:25.299Z"
+    "user_grade": 1
   }
 }

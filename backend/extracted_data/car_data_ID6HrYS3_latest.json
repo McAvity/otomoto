@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6HrYS3.html",
-  "timestamp": "2025-07-18T10:08:50.687Z",
   "data": {
     "car_name": "Renault Master",
     "price": "52 000",
@@ -19,7 +18,6 @@
     "model": "Master",
     "year": "2004",
     "user_notes": "calkiem dobry",
-    "user_grade": 3,
-    "user_timestamp": "2025-07-18T10:08:50.687Z"
+    "user_grade": 3
   }
 }

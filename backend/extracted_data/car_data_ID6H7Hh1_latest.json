@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6H7Hh1.html",
-  "timestamp": "2025-07-18T11:38:03.833Z",
   "data": {
     "car_name": "Renault Master",
     "price": "37 000",
@@ -19,7 +18,6 @@
     "model": "Master",
     "year": "2001",
     "user_notes": "podwojne lozko, 3 osoby, niski strych",
-    "user_grade": 3,
-    "user_timestamp": "2025-07-18T11:38:03.833Z"
+    "user_grade": 3
   }
 }

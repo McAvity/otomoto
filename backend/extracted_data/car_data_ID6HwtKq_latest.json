@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/nissan-primastar-ID6HwtKq.html",
-  "timestamp": "2025-07-18T09:51:32.947Z",
   "data": {
     "car_name": "Nissan Primastar",
     "price": "58 000",
@@ -19,7 +18,6 @@
     "model": "Primastar",
     "year": "2014",
     "user_notes": "po rozlozeniu, nie mozna sie ruszyc - krotki? albo lozko dlugie.\nniski strych",
-    "user_grade": 4,
-    "user_timestamp": "2025-07-18T09:51:32.947Z"
+    "user_grade": 4
   }
 }

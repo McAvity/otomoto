@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6Hw7X8.html",
-  "timestamp": "2025-07-13T23:39:16.573Z",
   "data": {
     "car_name": "Citroën Jumper",
     "price": "56 000",
@@ -19,7 +18,6 @@
     "brand": "",
     "model": "Citroën",
     "user_notes": "",
-    "user_grade": 1,
-    "user_timestamp": "2025-07-13T23:39:16.573Z"
+    "user_grade": 1
   }
 }

@@ -560,11 +560,7 @@
                 const ariaLabel = ($link.attr('aria-label') || '').toLowerCase();
                 
                 // Check for various forms of "show VIN" text
-                if ((linkText.includes('wyświetl') && linkText.includes('vin')) ||
-                    linkText.includes('wyświetl vin') ||
-                    (linkText.includes('pokaż') && linkText.includes('vin')) ||
-                    ariaLabel.includes('wyświetl vin') ||
-                    ariaLabel.includes('show vin')) {
+                if (linkText.includes('Wyświetl VIN') || linkText.includes('VIN')) {
                     
                     showVinLink = this;
                     console.log('Found VIN link:', linkText, 'aria-label:', ariaLabel);

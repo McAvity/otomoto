@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/peugeot-boxer-ID6HmhPS.html",
-  "timestamp": "2025-07-18T09:58:07.383Z",
   "data": {
     "car_name": "Peugeot Boxer",
     "price": "61 500",
@@ -19,7 +18,6 @@
     "model": "Boxer",
     "year": "2009",
     "user_notes": "bezsensowna ubikacja, chyba ze to prysznic?",
-    "user_grade": 4,
-    "user_timestamp": "2025-07-18T09:58:07.383Z"
+    "user_grade": 4
   }
 }
