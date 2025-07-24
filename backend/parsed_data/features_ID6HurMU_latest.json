@@ -1,0 +1,29 @@
+{
+  "car_id": "ID6HurMU",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6HurMU.html",
+  "features": {
+    "accessories": [
+      "półka na torby",
+      "klimatyzacja",
+      "łóżko"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Citroen JumperRok produkcji: 20083.0 HDi 150 KMSamochód prywatny zarejestrowany i ubezpieczony w Polsce.Salon PolskaSamochód sprawny technicznie w stanie widocznym na zdjęciach.Wersja 5 OsobowaBogate wyposażenie:- półka na torby- klimatyzacja- łóżko-  i wiele innychWięcej informacji udzielę telefonicznie:602xxx378xxx764",
+  "extraction_timestamp": "2025-07-19T23:02:58.709630",
+  "model_used": "gpt-4o-mini"
+}

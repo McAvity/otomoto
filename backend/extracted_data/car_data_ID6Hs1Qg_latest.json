@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6Hs1Qg.html",
-  "timestamp": "2025-07-18T09:53:58.148Z",
   "data": {
     "car_name": "Mercedes-Benz Sprinter",
     "price": "50 000",
@@ -19,7 +18,6 @@
     "model": "Sprinter",
     "year": "2001",
     "user_notes": "duzy solar, lozko wszerz, wysoki trych\nWROCLAW",
-    "user_grade": 4,
-    "user_timestamp": "2025-07-18T09:53:58.148Z"
+    "user_grade": 4
   }
 }

@@ -1,0 +1,37 @@
+{
+  "car_id": "ID6HvgDG",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-vito-115cdi-ID6HvgDG.html",
+  "features": {
+    "accessories": [
+      "lodówka (gaz/230V/12V)",
+      "zlew z baterią",
+      "kuchenka gazowa",
+      "zbiorniki wody czystej i szarej",
+      "szafki",
+      "siedzenie pasażera obrotowe",
+      "stolik",
+      "markiza FIAMMA 2,5m",
+      "hak",
+      "felgi aluminiowe",
+      "elektryczne okna przód i tył"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": true,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "W 2010 roku kupiłem samochód w Belgii z przebiegiem około 150 tys. km, następnie został zabudowany i przerejestrowany na specjalny kempingowy 4 osobowy (2 miejsca do spania). W samochodzie znajduje się: lodówka (gaz/230V/12V), zlew z baterią i kuchenką gazową, zbiorniki wody czystej i szarej, szafki, siedzenie pasażera obrotowe, stolik. Z zewnątrz zamontowana jest markiza FIAMMA 2,5m oraz hak, felgi aluminiowe, elektryczne okna przód i tył. Jest możliwość zakupu wraz z platformą i skuterem.Samochód garażowany, używany tylko na wyjazdy wakacyjne letnie. Serwisowany w ASO Mercedes-Benz Duda-Cars Poznań. Zwiedziliśmy nim całą Europę, nigdy nas nie zawiódł. Podróżowanie tym autem, to czysta przyjemność. Zapraszam.",
+  "extraction_timestamp": "2025-07-19T23:04:24.825123",
+  "model_used": "gpt-4o-mini"
+}

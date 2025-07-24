@@ -1,0 +1,33 @@
+{
+  "car_id": "ID6HvhJg",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/benimar-tessoro-463-kamper-camper-2024-zarejstrowany-w-pl-ID6HvhJg.html",
+  "features": {
+    "accessories": [
+      "Kamper Benimar Tessoro",
+      "2024r",
+      "I rejstracja 10.2024r",
+      "uzytkowany zaledwie 3 miesiace",
+      "zakupiony w Polskim salonie",
+      "zarejstrowany w kraju",
+      "po szkodzie ogniowej"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Do sprzedania Kamper Benimar Tessoro z 2024r, I rejstracja 10.2024r, uzytkowany zaledwie 3 miesiace, zakupiony w Polskim salonie- zarejstrowany w kraju. Pojazd po szkodzie ogniowej",
+  "extraction_timestamp": "2025-07-19T23:04:08.796204",
+  "model_used": "gpt-4o-mini"
+}

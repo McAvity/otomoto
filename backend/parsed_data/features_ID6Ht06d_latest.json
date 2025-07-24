@@ -1,0 +1,32 @@
+{
+  "car_id": "ID6Ht06d",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/iveco-daily-ID6Ht06d.html",
+  "features": {
+    "accessories": [
+      "Iveco",
+      "Laika",
+      "ecovip",
+      "30 tys km",
+      "4200 km",
+      "Prawo jazdy C"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Iveco Laika ecovip 2Przebieg tylko 30 tys kmMasa całkowita 4200km Prawo jazdy CWszelkich informacji udzielę telefonicznie <a>Wyświetl numer</a>",
+  "extraction_timestamp": "2025-07-19T23:04:22.572286",
+  "model_used": "gpt-4o-mini"
+}

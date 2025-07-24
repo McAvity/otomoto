@@ -1,0 +1,33 @@
+{
+  "car_id": "ID6HsZMI",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/volkswagen-t5-ID6HsZMI.html",
+  "features": {
+    "accessories": [
+      "ubikacja",
+      "bateria słoneczna",
+      "zbiornik na czystą wodę",
+      "zbiornik na brudną wodę",
+      "stolik",
+      "kanapa",
+      "rozkladana kanapa do spania"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": true,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "Sprzedam kampera na vw t5 zabudowa spełnia wszystkie wymogi do kamperowania, wyposażony w ubikację, bateria słoneczna, , zbiornik na czystą i brudną wodę, stolik kanapę która się rozkłada do spania. Silnik pracuje bardzo,bardzo dobrze po serwisie. Auto na niemieckich blachach.",
+  "extraction_timestamp": "2025-07-19T23:05:51.162903",
+  "model_used": "gpt-4o-mini"
+}

@@ -8,15 +8,15 @@
     "phone": "511-655-655",
     "vin": "VF1VB000159196256",
     "car_type": "Używany · 2018 · Do negocjacji · Możliwość odliczenia VAT",
-    "year": "Renault",
     "negotiable": "Używany · 2018 · Do negocjacji · Możliwość odliczenia VAT",
     "mileage": "736 000 km",
     "fuel": "Diesel",
     "transmission": "Manualna",
     "vehicle_type": "Kamper",
     "cubic_capacity": "2 299 cm3",
-    "brand": "",
-    "model": "Renault",
+    "brand": "Renault",
+    "model": "MASTER",
+    "year": "2018",
     "user_notes": "",
     "user_grade": 1
   }

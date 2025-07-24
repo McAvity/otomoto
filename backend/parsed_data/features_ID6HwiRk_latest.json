@@ -1,0 +1,42 @@
+{
+  "car_id": "ID6HwiRk",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/opel-kamper-bardzo-ladny-pelna-opcja-ID6HwiRk.html",
+  "features": {
+    "accessories": [
+      "brak wgnieceń",
+      "brak zadrapań",
+      "brak korozji",
+      "silnik pracuje równo",
+      "silnik cicho",
+      "nie kopci",
+      "ma moc",
+      "odpala na widok kluczyka",
+      "pełne wyposażenie",
+      "2 osobowe łóżko",
+      "komoda z szufladami",
+      "przestrzeń na przechowywanie pod sufitem",
+      "duże uchylne okno",
+      "kabina prysznicowa",
+      "miejsce na przenośną toaletę",
+      "kanapa po złożeniu daje miejsca siedzące"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "none",
+    "has_water_tap_inside": false,
+    "has_roof_window": true,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "inside",
+    "confidence_score": 1.0
+  },
+  "source_description": "Nadwozie i lakier nie posiadają żadnych wgnieceń, zadrapań czy korozji, silnik pracuje równo i cicho nie kopci ma moc a odpala na widok kluczyka, pełne wyposażenie, to solidne auto może stać się twoim wymarzonym samochodem do podróży i spędzania czasu na świeżym powietrzu , wymiary paki 201 cm wysokość, 350 cm długość , przestrzeń została podzielona na części, sypialną i sanitarną, . W części sypialnej jest 2 osobowe łóżko, komoda z szufladami, i przestrzeń na przechowywanie pod sufitem, jest też duże uchylne okno, w części sanitarnej znajduje się kabina prysznicowa i jest miejsce na przenośną toaletę . kanapa po złożeniu daje nam miejsca siedzące, , wszystkie zdjęcia ponad 30szt na otomoto, pełna moja oferta na stronie ; Bus123.otomoto.pl zapraszam",
+  "extraction_timestamp": "2025-07-19T23:05:18.998715",
+  "model_used": "gpt-4o-mini"
+}

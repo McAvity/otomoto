@@ -1,0 +1,35 @@
+{
+  "car_id": "ID6HlSGH",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/renault-trafic-ID6HlSGH.html",
+  "features": {
+    "accessories": [
+      "instalacja 220V",
+      "instalacja wodna",
+      "kuchenka gazowa",
+      "klimatyzacja",
+      "górny pokład - bagażnik",
+      "schowki",
+      "szuflady",
+      "szafki",
+      "oświetlenie"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": true,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "Witam,Proponuje do sprzedania mojego CAMPERA, samochód to mój projekt, przebudowany, adaptowany z kontenera ambulance, wyposażony w instalację 220V, instalację wodną, kuchenkę gazową, klimatyzację, górny pokład - bagażnik, mnóstwo schowków, szuflad, szafek, oświetlenie....Bazę stanowi Renault TRAFIC z 2008 roku z wymienionym super ekonomicznym \"świeżym\" silnikiem 2.0 dCI 114KM...W ogłoszeniu wstawiam klika zdjęć, ale polecam kontakt i oględziny, które na pewno odkryją wszystkie zalety tego projektu, więc.... zachęcam do kontaktu i skorzystania z oferty.Na wszystkie pytania odpowiem telefonicznie 606120589 bądź poprzez wiadomości w portalu otomoto.",
+  "extraction_timestamp": "2025-07-19T23:05:23.504962",
+  "model_used": "gpt-4o-mini"
+}

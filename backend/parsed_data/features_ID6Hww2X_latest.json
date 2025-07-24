@@ -1,0 +1,27 @@
+{
+  "car_id": "ID6Hww2X",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/volkswagen-transporter-ID6Hww2X.html",
+  "features": {
+    "accessories": [
+      "nowa zabudowa"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Witam, sprzedam auto przerobione na całorocznego kampera, wyposażenie widoczne na zdjęciach, nowa zabudowa, po więcej informacji zapraszam do kontaktu telefonicznego.",
+  "extraction_timestamp": "2025-07-19T23:05:46.338327",
+  "model_used": "gpt-4o-mini"
+}

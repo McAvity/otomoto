@@ -1,0 +1,41 @@
+{
+  "car_id": "ID6HvAGI",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/citroen-c8-ID6HvAGI.html",
+  "features": {
+    "accessories": [
+      "Klimatyzacja dwustrefowa",
+      "tempomat",
+      "nawigacja",
+      "pełne wyposażenie turystyczno-kempingowe",
+      "duże łóżko",
+      "maty do spania",
+      "przedsionek OBELINK PORTELLONE",
+      "podnoszony daszek przeciw deszczowy/słoneczny",
+      "namiot prysznicowy SKANDIKA POP-UP",
+      "toaleta turystyczna/przenośna THEDFORD PORTA POTTI",
+      "prysznic solarny",
+      "szafka kempingowa turystyczna",
+      "kuchenka gazowa turystyczna jednopalnikowa KEMPFAYA",
+      "zasłony izolacyjne",
+      "pojemniki pod zabudową łóżka"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": true,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "outside",
+    "confidence_score": 1.0
+  },
+  "source_description": "Citroen C8 Kamper Van 2005r. LPG, Klima/tempomat/navi. Z pełnym wyposażeniem kamperowym/turystycznymJeśli nie chcesz wydawać majątku na kampera a chciałbyś się cieszyć bliskością natury i fajnie wypoczywać- to ten Kamper van jest właśnie dla Ciebie.Citroen C8, z kompletnym i pełnym wyposażeniem turystyczno-kempingowym. Zestaw jest przemyślany, zawiera wszystko co jest niezbędne do wygodnego pobytu na polu kempingowym, namiotowym czy na dziko.Auto to C8, 2,0 benzyna z instalacją gazową i hakiem.• Klimatyzacja dwustrefowa, czujniki cofania,tempomat• Duży wyświetlacz, nawigacja, telefon• Fabryczna zmieniarka CD w schowku• Fabrycznie przyciemniane szyby i rolety• Elektrycznie zamykane drzwi boczne, zamykane z pilota z panelu kierowcy i z przycisku przy drzwiach• Opony wielosezonowe…Oczywiście poduszki, wspomaganie, pełna elektryka, automatycznie składane lusterka itp.Wszystko sprawne.Niskie koszty eksploatacji, badanie techniczne i ubezpieczenie w kamperze wielokrotnie droższe, dodatkowo-C8 jeździ na gazie.Badanie techniczne i polisa OC do kwietnia 2026r.Wyposażenie stanowiące całość kampingową z autem :• Zamontowane duże łóżko, podniesione na stalowych nogach. Platforma jest dzielona w części zagłówka- podczas przejazdu zagłówek jest podnoszony by przednie fotele miały dużo miejsca- po dojeździe na miejsce kładziemy zagłówek i mamy duże wygodne łóżko. Pod platformą miejsce na skrzynki na wymiar, bagaże koło zapasowe itp.• Dwie maty do spania• Świetny zintegrowany z autem przedsionek OBELINK PORTELLONE (faktura, gwarancja). Jak nowy, zakupiony w zeszłym roku, po rozłożeniu mamy dodatkowo dwa pokoiki/pomieszczenia, zintegrowana podłoga. Niezwykle solidny i komfortowy dodatkowo ma podnoszony daszek przeciw deszczowy/słoneczny.• Namiot prysznicowy SKANDIKA POP-UP, duży i wygodny, przy wstawionej toalecie można spokojnie brać prysznic• Do namiotu prysznicowego/toalety można przejść prosto przez boczne wyjście z przedsionku bez konieczności wychodzenia na zewnątrz• Toaleta turystyczna/przenośna, THEDFORD PORTA POTTI, (jak nowa)• Prysznic solarny• Szafka kempingowa turystyczna, składana kompaktowa FROYAK• Kuchenka gazowa turystyczna jednopalnikowa KEMPFAYA• Zasłony izolacyjne , przeciwsłoneczne na przednie szyby(jak w kamperach)• Pojemniki pod zabudową łóżkax2Taki zestaw jest bardzo wygodny/mobilny w przemieszczaniu się parkowaniu i nocowaniu w różnych miejscach w porównaniu do dużego kampera czy przyczepy- można wszędzie wjechać.Z mankamentów- Lekkie przetarcia lakieru na boku, lewe drzwi przesuwne ciężko chodzą, szarpią- do regulacji chyba linka stalowa drzwi. Tylna wycieraczka do zamontowania- mam zapasową.",
+  "extraction_timestamp": "2025-07-19T23:04:55.032304",
+  "model_used": "gpt-4o-mini"
+}

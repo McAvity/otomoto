@@ -1,0 +1,39 @@
+{
+  "car_id": "ID6HtBRV",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6HtBRV.html",
+  "features": {
+    "accessories": [
+      "Mercedes Sprinter",
+      "zabudowa dla dwóch osób",
+      "przebieg 191 000km",
+      "dwa miejsca do jazdy",
+      "2-3 miejsca do spania",
+      "spore łóżko",
+      "szafki z półkami",
+      "pojemne schowki",
+      "klimatyzacja",
+      "ogrzewanie",
+      "bojler",
+      "elektryczne rolety",
+      "nowe opony"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": true,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Do sprzedania Mercedes Sprinter z zabudową dla dwóch osób.Przebieg 191 000km - auto przez ostatnie kilka lat jezdzilo raz w roku (na miesiąc) do Chorwacji (pozostała cześć roku w garażu).Auto posiada dwa miejsca do jazdy, oraz 2-3 do spaniaAuto wyposażone w spore łózko, w szafki z półkami oraz pojemne schowki.Klimatyzacja i Ogrzewanie, bojler, el. rolety (np na owady - drzwi boczne).Nowe oponyOsoby zainteresowane prosze o kontakt tel.Nie interesuje mnie zamiana.",
+  "extraction_timestamp": "2025-07-19T23:05:11.416807",
+  "model_used": "gpt-4o-mini"
+}

@@ -1,0 +1,57 @@
+url,user_grade,bed_orientation,bed_length,roof_height,has_solar_panels,front_back_connection,kitchen_location,has_water_tap_inside,has_roof_window,has_door_window,stealth_level,has_webasto,has_air_conditioning,van_height,shower_location,confidence_score
+https://www.otomoto.pl/dostawcze/oferta/ford-transit-ID6FEtKp.html,2,lengthwise,200cm,,,,inside,true,,,,true,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-trafic-karetka-ambulans-ID6Fm0vQ.html,1,,,,,,,,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6Hs1Qg.html,4,,,,true,,inside,true,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6Hx10j.html,1,,,,,,,,,,,true,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-trafic-ID6Hkr8C.html,2,,,,true,,,,,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/nissan-primastar-ID6Hvdwx.html,3,,,,true,,,,true,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/fiat-ducato-possl-ID6HvRiN.html,4,lengthwise,duże łóżko + mniejsze rozkładane,,true,,inside,true,true,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-trafic-ID6HjNGX.html,1,,,,,,inside,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/nissan-primastar-ID6HwtKq.html,4,,,,true,,inside,true,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6HnBqH.html,3,,,,true,,inside,,,,,true,true,,outside,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6HrYS3.html,3,widthwise,180cm,,true,,inside,true,true,,,true,true,,inside,1.0
+https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6HurMU.html,1,,,,,,,,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/volkswagen-transporter-ID6Hwocl.html,4,,,,true,,,true,,,,true,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/ford-transit-ID6HtHKB.html,1,,,,,,inside,true,,,,true,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/volkswagen-van-ID6HvJcN.html,3,,,,,,inside,true,,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6HrGBK.html,1,,,,true,,inside,true,,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6Hw5A1.html,2,,,,,,,,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/benimar-tessoro-463-kamper-camper-2024-zarejstrowany-w-pl-ID6HvhJg.html,1,,,,,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/volkswagen-caddy-maxi-long-pilot-bf-2-kamper-ID6Hq67S.html,1,,,,,,,,,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6GSmyZ.html,3,widthwise,1.30/1.75,,,,,,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/ford-transit-ID6Hnz3h.html,1,,,,,,,,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6Ht4fT.html,2,,,,,,inside,true,,,,,,,inside,1.0
+https://www.otomoto.pl/dostawcze/oferta/iveco-kamper-maxi-xxxl-3500-hak-ID6Hvk0T.html,3,,,,true,,inside,true,,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/ford-transit-ID6HuZo7.html,1,,,,,,,,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6Hv2Le.html,4,lengthwise,140x190,,true,,inside,true,,,,,true,,outside,1.0
+https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-vito-115cdi-ID6HvgDG.html,4,,,,,,inside,true,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/iveco-daily-ID6Ht06d.html,1,,,,,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6H7Hh1.html,3,,,low,,,,,,,,,,low,,1.0
+https://www.otomoto.pl/dostawcze/oferta/peugeot-partner-ID6GRzxB.html,3,,,,true,,,,,,,,,,outside,1.0
+https://www.otomoto.pl/dostawcze/oferta/fiat-ducato-ID6HnAIq.html,1,lengthwise,205 cm,,true,,,,,,low,true,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/opel-movano-ID6Hoih0.html,0,,,,,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/peugeot-boxer-ID6HmhPS.html,4,,,,,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6HqRdI.html,2,,,high,true,,,,,,,,,high,,1.0
+https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6Hx8d1.html,4,,190/120,,true,,inside,true,true,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/opel-vivaro-ID6Hmurc.html,2,lengthwise,160x200,,true,,inside,true,,,low,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/citroen-c8-ID6HvAGI.html,1,,,,true,,inside,,,,,,true,,outside,1.0
+https://www.otomoto.pl/dostawcze/oferta/fiat-ducato-ID6Huh9t.html,1,,,,,,inside,true,,,,true,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/volkswagen-transporter-t5-ID6H4tyY.html,4,,,,,,inside,true,true,,low,true,,,outside,1.0
+https://www.otomoto.pl/dostawcze/oferta/peugeot-boxer-ID6HspXC.html,1,widthwise,200x200,,true,,inside,,,,,,,,outside,1.0
+https://www.otomoto.pl/dostawcze/oferta/fiat-ducato-ID6HvvsM.html,3,lengthwise,185 cm,,true,,,,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/opel-vivaro-ID6HwLsV.html,2,,,low,true,,,,,,,,,low,,1.0
+https://www.otomoto.pl/dostawcze/oferta/opel-kamper-bardzo-ladny-pelna-opcja-ID6HwiRk.html,1,,,,,,,,true,,,,,,inside,1.0
+https://www.otomoto.pl/dostawcze/oferta/volkswagen-t-5-ID6HvhYP.html,1,,,high,,,,,,,,true,true,high,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6Hxe5M.html,3,,,,,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6HtBRV.html,1,,,,,,,,,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/toyota-hiace-ID6HjWVZ.html,1,,,,,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/peugeot-boxer-ID6HwEhn.html,1,widthwise,180x130 cm,,true,,inside,true,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/peugeot-boxer-ID6HtFkp.html,1,,,high,true,,inside,true,true,,,true,,,inside,1.0
+https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6Hw7X8.html,1,,,,,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-trafic-ID6HlSGH.html,3,,,,,,inside,true,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6GSw1U.html,4,lengthwise,187x167,,true,,inside,true,true,,,true,true,,inside,1.0
+https://www.otomoto.pl/dostawcze/oferta/volkswagen-t5-ID6HsZMI.html,3,,,,true,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6HwMUr.html,1,,,,,,,,true,,,true,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/volkswagen-transporter-ID6Hww2X.html,4,,,,,,,,,,,,,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/renault-trafic-mini-camper-van-klimatyzacja-ID6HuZEA.html,1,,,,,,,,,,,,true,,,1.0
+https://www.otomoto.pl/dostawcze/oferta/iveco-daily-kamper-ID6Hp1Vf.html,1,,,,,,,,,,,,,,,1.0

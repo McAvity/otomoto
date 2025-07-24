@@ -1,0 +1,42 @@
+{
+  "car_id": "ID6HwLsV",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/opel-vivaro-ID6HwLsV.html",
+  "features": {
+    "accessories": [
+      "dachowe relingi",
+      "hak holowniczy",
+      "zabudowa kamperowa",
+      "wygłuszenie",
+      "izolacja",
+      "dwu osobowe rozsuwane łóżko",
+      "pojemna szafka",
+      "stolik",
+      "pełna elektryka",
+      "solar na dachu o mocy 110W",
+      "akumulator agm 95ah VARTA",
+      "ładowanie zewnętrzne (siła)",
+      "dwa porty USB",
+      "dwa gniazdka 240W",
+      "dwa wejścia 12v",
+      "przetwornica"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "low",
+    "has_solar_panels": true,
+    "front_back_connection": "unknown",
+    "kitchen_location": "none",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "low",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "Ogłoszenie OplaWitam serdecznie na sprzedaż posiadam samochód marki Opel model Vivaro L1H1. Silnik 1.9 90KM ze skrzynia 6-cio biegowa co czyni go bardzo ekonomicznym samochodem. Niski przebieg 167000. Pojazd jest w bardzo dobrym stanie mechanicznym jak i wizualnym posiada normalne ślady użytkowania. Samochód został wyposażony w dachowe relingi, posiada też hak holowniczy. W środku jest zabudowa kamperowa samochód został wygłuszony i zaizolowany. Na wyposażeniu dwu osobowe rozsuwane łóżko, pojemna szafka i stolik. Samochód posiada pełną elektrykę tzn. Solar na dachu o mocy 110W akumulator agm 95ah VARTA oraz ładowanie zewnętrze (siła), w środku są dwa porty USB oraz dwa gniazdka 240W i dwa wejścia 12v plus przetwornica (nie pamiętam jaka moc).",
+  "extraction_timestamp": "2025-07-19T23:05:16.057416",
+  "model_used": "gpt-4o-mini"
+}

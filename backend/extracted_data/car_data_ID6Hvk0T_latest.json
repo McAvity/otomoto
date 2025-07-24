@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/iveco-kamper-maxi-xxxl-3500-hak-ID6Hvk0T.html",
-  "timestamp": "2025-07-18T10:08:52.371Z",
   "data": {
     "car_name": "Iveco KAMPER MAXI XXXL 3500 HAK",
     "price": "57 900",
@@ -19,7 +18,6 @@
     "model": "KAMPER MAXI XXXL 3500 HAK",
     "year": "2007",
     "user_notes": "malo stealth",
-    "user_grade": 3,
-    "user_timestamp": "2025-07-18T10:08:52.371Z"
+    "user_grade": 3
   }
 }

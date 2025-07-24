@@ -1,0 +1,31 @@
+{
+  "car_id": "ID6Hx10j",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6Hx10j.html",
+  "features": {
+    "accessories": [
+      "kamper typu bus",
+      "oryginalny Globecar",
+      "wszystkie udogodnienia",
+      "dodatkowe ogrzewanie",
+      "norma Euro 6"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": true,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Bardzo ładny i kompletny kamper typu bus, oryginalny Globecar wyposażony we wszystkie udogodnienia. Spełnia normę Euro 6, więc nadaje się na podróże po całej Europie. Wyposażony w dodatkowe ogrzewanie, więc nadaje się również na zimę!",
+  "extraction_timestamp": "2025-07-19T23:03:25.535850",
+  "model_used": "gpt-4o-mini"
+}

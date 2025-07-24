@@ -1,0 +1,28 @@
+{
+  "car_id": "ID6Hxe5M",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6Hxe5M.html",
+  "features": {
+    "accessories": [
+      "przygotowany do sezonu",
+      "masa całkowita 3900kg"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Kamper przygotowany do sezonu, wystarczy wsiąść i jechać na wyprawę.Więcej informacji udzielę telefonicznie.Masa całkowita 3900kg",
+  "extraction_timestamp": "2025-07-19T23:05:13.160111",
+  "model_used": "gpt-4o-mini"
+}

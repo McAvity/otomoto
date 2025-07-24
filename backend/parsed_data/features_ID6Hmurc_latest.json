@@ -1,0 +1,42 @@
+{
+  "car_id": "ID6Hmurc",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/opel-vivaro-ID6Hmurc.html",
+  "features": {
+    "accessories": [
+      "tapicerka",
+      "wentylacja",
+      "klimatyzacja",
+      "łóżko (160x200)",
+      "szafka z lodówką (230V)",
+      "zlewozmywak z dużym pojemnikiem na wodę czystą",
+      "szara woda",
+      "chemiczne WC (mobilne)",
+      "panel słoneczny",
+      "przetwornica",
+      "2 akumulatory",
+      "separator",
+      "dodatkowe oświetlenie ledowe",
+      "gniazda USB",
+      "mobilna kuchenka na kartusze gazowe",
+      "kratki wentylacyjne"
+    ],
+    "bed_orientation": "lengthwise",
+    "bed_length": "160x200",
+    "roof_height": "unknown",
+    "has_solar_panels": true,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": true,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "low",
+    "has_webasto": false,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "Opel Vivaro osobowy (zarejestrowany na 9 osób) z zabudową kamperbus.Fajny 3-osobowy kamper zbudowany na osobowej wersji Opla Vivaro, całe wnętrze posiada tapicerkę, tył również oszklony. Dzięki temu, że jest to wersja osobowa posiada również wentylację i klimatyzację na przód i tył. Wersja long. Z przodu posiada 3 siedzenia - jest to świetna wersja dla pary lub 3 osób - nikt nie siedzi z tyłu odcięty od świata, rozmów i wrażeń :) Łóżko (160x200) składa się (nawet dziecko może to ogarnąć) do wymiarów bagażnika, co daje możliwość spokojnego urzędowania w części mieszkalnej. Część bagażowa pod łóżkiem - nie jest zabudowana dlatego można sobie \"upychać\" co chcemy i jak chcemy - bez ograniczeń. Dodatkowo posiada szafkę z lodówką (230V), zlewozmywak z dużym pojemnikiem na wodę czystą oraz szarą. Chemiczne WC (mobline). Panel słoneczny, przetwornica, 2 akumulatory (jeden do jazdy, drugi do całej reszty), separator - panele w słoneczne dni wystarczają na pracę lodówki, czajnika,. Dodatkowe oświetlenie ledowe w części mieszkalno-sypialnej, gniazda USB. Mobilna kuchenka na kartusze gazowe.Z zewnątrz nie ma żadnych cech kampera, nie rzuca się w oczy, dlatego jeśli ktoś ma ochotę to spokojnie może nocować nawet w centrach miast (oczywiście jeśli lokalne przepisy na to pozwalają). Na cieplejsze dni można zamontować na przednich oknach dodatkowe kratki wentylacyjne.Sprytne autko, które nigdy nie zawiodło na trasie, przejechało bezawaryjnie większą część Europy. Jest w ciągłym użytkowaniu :)Bez absolutnie żadnych zmian konstrukcyjnych - w pół godziny można przerobić na osobówkę na 9 miejsc lub dostawczaka. Posiada aktualny przegląd (ważny do 04.2026) i ubezpieczanie. Nowe tarcze i klocki, nowe opony letnie, świeżo po wymianie oleju silnikowego.",
+  "extraction_timestamp": "2025-07-19T23:04:58.208304",
+  "model_used": "gpt-4o-mini"
+}

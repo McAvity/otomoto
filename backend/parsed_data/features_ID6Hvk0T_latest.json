@@ -1,0 +1,39 @@
+{
+  "car_id": "ID6Hvk0T",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/iveco-kamper-maxi-xxxl-3500-hak-ID6Hvk0T.html",
+  "features": {
+    "accessories": [
+      "kamera cofania",
+      "klimatyzacja",
+      "panele solarne",
+      "przetwornica z 12 na 230V",
+      "lodówka",
+      "kuchenka",
+      "zlew",
+      "butla gazowa",
+      "boiler do ciepłej wody",
+      "ładowanie akumulatora przez alternator",
+      "prostownik do panela MPPT 100 | 50",
+      "bateria LiFePO4 12.8V - 600 Ah",
+      "inwerter prądu AC-DC"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": true,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": true,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": true,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "IVECO KAMPER 35C18Rok produkcji:2007.Pierwsza rej. w Polsce 18.06. 2025DVDKAMERA COFANIAKLIMATYZACJAPANELE SOLARNYPRZETWORNICA Z 12 NA 230VPrzebieg: TYLKO 145 777 km!Silnik: Diesel 3,0 LNA PODUSZKACHORZEWANIE POSTOJOWEKolor nadwozia: biały.Przegląd ważny do października 2026Ubezpieczenie ważne 06/ 2026Akumulator zakupiony 02/06/ 2025 (na gwarancji).DMC 3500 KGHAK 3500 KGStan techniczny:Pojazd w dobrym stanie, regularnie serwisowany (pierwszy właściciel w Polsce).Miejsca siedzące: 4REJESTROWANY 5 OSÓBKuchnia: Lodówka, kuchenka, zlewButla gazowa: GasBank LS 11 kg -System ogrzewania wody: Boiler do ciepłej wody zamontowany na podwoziu.Elektryka: Ładowanie akumulatora przez alternator (Orion Tr Smart 12 | 12), prostownik do panela MPPT 100 | 50, bateria LiFePO4 12.8V - 600 Ah, inwerter prądu AC-DC.GOTOWY DO WYJAZDU NA WYMAŻONE WAKACJIEPOLECAM WIĘCEJ POD Wyświetl numer",
+  "extraction_timestamp": "2025-07-19T23:03:53.389075",
+  "model_used": "gpt-4o-mini"
+}

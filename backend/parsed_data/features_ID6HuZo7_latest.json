@@ -1,0 +1,41 @@
+{
+  "car_id": "ID6HuZo7",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/ford-transit-ID6HuZo7.html",
+  "features": {
+    "accessories": [
+      "ford transit",
+      "euroline",
+      "orginał westfalia",
+      "silnik 20 diesel",
+      "125 km",
+      "tddialu",
+      "felgi",
+      "fotele obrotowe",
+      "łóżko",
+      "zarejestrowany na 7 osób",
+      "hak 2 kpl",
+      "kluczy",
+      "klima",
+      "naprawa",
+      "ogrzewanie tył"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "ford transit euroline orginał westfaliasilnik20diesel 125km tddialufelgifotele obrotowełóżkozarejestrowany na 7 osóbhak2kplkluczyklima-naprawaogrzewanie tył",
+  "extraction_timestamp": "2025-07-19T23:04:27.081255",
+  "model_used": "gpt-4o-mini"
+}

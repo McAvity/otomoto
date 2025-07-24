@@ -1,0 +1,37 @@
+{
+  "car_id": "ID6Hwocl",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/volkswagen-transporter-ID6Hwocl.html",
+  "features": {
+    "accessories": [
+      "webasto",
+      "panel solarny",
+      "regulowane oświetlenie",
+      "przetwornica na 230v",
+      "kran z elektryczną pompką",
+      "fotel obracany pasażera",
+      "rozkładane dwuosobowe łóżko",
+      "wnętrze wygłuszone/ocieplone",
+      "opony letnie na alufelgach",
+      "opony zimowe na stalowych",
+      "fotel prawy z obrotnicą"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": true,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": true,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": true,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Z ciężkim sercem sprzedajemy naszego Transportera T5 2.0, wersja do 3,2 tony, 320tysięcy przebiegu. Auto zobaczyło kawałek Europy, regularnie serwisowane, rdza daje o sobie znać, ale poza tym w bardzo dobrym stanie technicznym.Auto przerobione na kampera, wyposażone m.in. w webasto, panel solarny, regulowane oświetlenie, przetwornicę na 230v, kran z elektryczną pompką, fotel obracany pasażera, i oczywiście rozkładane dwuosobowe łóżko. Wnętrze wygłuszone/ocieploneZdecydowaliśmy się na sprzedaż, ponieważ zbyt rzadko go używamy.W zestawie opony letnie na alufelgach, oraz zimowe na stalowych.Dorzucam równierz 2osobowy fotel prawy z obrotnicą - auto nadal zarejestrowane na 3 osoby łącznie.Auto do obejrzenia w Radomiu lub Warszawie.Proszę wstępnie o pisanie wiadomości bądź SMS, jestem aktualnie dostępny o nieregularnych godzinach.Cena 49500zł, do negocjacji.",
+  "extraction_timestamp": "2025-07-19T23:03:50.727368",
+  "model_used": "gpt-4o-mini"
+}

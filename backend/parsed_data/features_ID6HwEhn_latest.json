@@ -1,0 +1,43 @@
+{
+  "car_id": "ID6HwEhn",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/peugeot-boxer-ID6HwEhn.html",
+  "features": {
+    "accessories": [
+      "łóżko 180x130 cm",
+      "duża część bagażowa pod łóżkiem",
+      "samowystarczalna instalacja elektryczna",
+      "2 x 100ah akumulatory kamperowe",
+      "panel słoneczny ~350W",
+      "przetwornica MPPT",
+      "inwerter prądu przemiennego (do 1000 kw)",
+      "bezpieczniki",
+      "kamperowa lodówka na prąd stały 12V",
+      "2 strefy oświetlenia led",
+      "zlew z kranem",
+      "woda z pompką elektryczną",
+      "zbiorniczek ciśnienia",
+      "zbiornik na wodę 20l",
+      "zbiornik na ścieki 30l",
+      "szafka kuchenna z 3 szufladami",
+      "brak toalety"
+    ],
+    "bed_orientation": "widthwise",
+    "bed_length": "180x130 cm",
+    "roof_height": "unknown",
+    "has_solar_panels": true,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": true,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "Sprzedam kampera na bazie Peugeota Boxera L2H2. Idealny do spania w mieście jak i poza. Jego rozmiary sprawiają że łatwiej się nim parkuje niż standardowej, dłuższej wersji.W skład przeróbek wchodzi:łóżko 180x130 cmduża część bagażowa pod łóżkiemsamowystarczalna instalacja elektryczna: 2 x 100ah akumulatory kamperowe, panel słoneczny ~350W, przetwornica MPPT, inwerter prądu przemiennego (do 1000 kw), bezpiecznikikamperowa lodówka na prąd stały 12V2 strefy oświetlenia led, w tym jedna z regulacją mocy światłazlew z kranem, woda z pompką elektryczną i zbiorniczkiem ciśnienia (zbiornik na wodę 20l, na ścieki 30l)szafka kuchenna z 3 szufladamiJest to sprawdzony w boju sprzęt. Bez problemu można w nim pomieszkiwać na wyjazdach nie martwiąc się o brak prądu, czy wody. Jedyny minus to brak toalety, ale można sobie dokupić turystyczne wc.Technicznie auto w bardzo dobrym stanie, przez poprzedniego właściciela była regenerowana turbina i wtryski (faktury do wglądu). Blacharsko do poprawek ale sama podłoga została zabezpieczona.",
+  "extraction_timestamp": "2025-07-19T23:05:31.080749",
+  "model_used": "gpt-4o-mini"
+}

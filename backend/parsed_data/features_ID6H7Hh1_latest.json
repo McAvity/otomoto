@@ -1,0 +1,36 @@
+{
+  "car_id": "ID6H7Hh1",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6H7Hh1.html",
+  "features": {
+    "accessories": [
+      "kamper",
+      "Renault Master",
+      "zarejestrowany w Polsce",
+      "wersja L3H2",
+      "rok 2001",
+      "niski przebieg 117000km",
+      "sprowadzony",
+      "świetny stan wizualny",
+      "świetny stan mechaniczny",
+      "zabudowa robiona za granicą"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "low",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "low",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Witam.Sprzedam kampera na bazie Renault MasterZarejestrowany w PolsceWersja L3H2Auto z 2001r z bardzo niskim, udokumentowanym przebiegiem 117000km !Pojazd sprowadzonyAuto w świetnym stanie, zarówno wizualnym jak i mechanicznym.Zabudowa robiona za granicą.",
+  "extraction_timestamp": "2025-07-19T23:04:16.130684",
+  "model_used": "gpt-4o-mini"
+}

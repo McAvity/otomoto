@@ -1,0 +1,37 @@
+{
+  "car_id": "ID6HvJcN",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/volkswagen-van-ID6HvJcN.html",
+  "features": {
+    "accessories": [
+      "kuchenka",
+      "zmywak",
+      "toalett turystyczna",
+      "chlodziarka samochodowa",
+      "ogrzewanie Webasto diesel",
+      "klimatyzacja",
+      "wentylacja",
+      "pralka turystyczna",
+      "przyciemniane szyby",
+      "fotel passera obrotowy",
+      "stolik"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": true,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": true,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "Sam. wygodny w podrozy wszedzie wjedzie I parkujeZdemontowany ambulans I zastosowany smart box ( kamper box) kuchenka zmywak-brudna czysta woda toalett turystyczna chlodziarka samochodowa ogrzewanie Webasto diesel rozprowadzenie klimatyzacji na tylnia czesc z wentylacja niezaleznaPralka turystycznaPo naprawach i serwisachNowy przegladPrzyciemniane szybyFotel passera obrotowy stolikPierwsze rej. w polsce 17.09.2020",
+  "extraction_timestamp": "2025-07-19T23:03:43.342240",
+  "model_used": "gpt-4o-mini"
+}

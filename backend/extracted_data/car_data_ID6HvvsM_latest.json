@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/fiat-ducato-ID6HvvsM.html",
-  "timestamp": "2025-07-18T10:08:45.053Z",
   "data": {
     "car_name": "Fiat Ducato",
     "price": "38 000",
@@ -19,7 +18,6 @@
     "model": "Ducato",
     "year": "2007",
     "user_notes": "",
-    "user_grade": 3,
-    "user_timestamp": "2025-07-18T10:08:45.053Z"
+    "user_grade": 3
   }
 }

@@ -1,0 +1,25 @@
+{
+  "car_id": "ID6HmhPS",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/peugeot-boxer-ID6HmhPS.html",
+  "features": {
+    "accessories": [],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Posiadam do sprzedania kampera 3 osobowego , auto w bardzo dobrym stanie. Proszę o kontakt telefoniczny w celu uzyskania dokładniejszych informacji.",
+  "extraction_timestamp": "2025-07-19T23:05:06.531111",
+  "model_used": "gpt-4o-mini"
+}

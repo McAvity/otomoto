@@ -1,0 +1,32 @@
+{
+  "car_id": "ID6Hoih0",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/opel-movano-ID6Hoih0.html",
+  "features": {
+    "accessories": [
+      "silnik 2,3 o mocy 170KM",
+      "przebieg 335513km",
+      "bardzo dobry stan techniczny",
+      "bardzo dobry stan wizualny",
+      "idealna baza na kampera",
+      "faktura Vat-Marża"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "WitamMamy na sprzedaż świeżo sprowadzonego z Francji Opla Movano z 2017r.Auto posiada silnik 2,3 o mocy 170KM oraz przebieg 335513km.Auto w bardzo dobrym stanie technicznym jak i wizualnym .Idealna baza na kampera !Faktura Vat-Marża !Więcej informacji udzielę telefonicznie 501-178-247Zapraszamy na jazdę próbną oraz oględziny auta!! Przyjmujemy również auta w rozliczeniu !!",
+  "extraction_timestamp": "2025-07-19T23:05:04.821854",
+  "model_used": "gpt-4o-mini"
+}

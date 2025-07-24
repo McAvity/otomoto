@@ -1,0 +1,28 @@
+{
+  "car_id": "ID6HjNGX",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/renault-trafic-ID6HjNGX.html",
+  "features": {
+    "accessories": [
+      "kuchenka",
+      "lodówka"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "Na sprzedaż samochód kempingowy na bazie Renault Trafica z 2007r.Auto bez korozji.Można wracać do domu na kołach.Kamper wyposażony w kuchenkę i lodówkę.Gorąco polecam.",
+  "extraction_timestamp": "2025-07-19T23:03:14.682008",
+  "model_used": "gpt-4o-mini"
+}

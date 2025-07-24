@@ -1,0 +1,32 @@
+{
+  "car_id": "ID6Hnz3h",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/ford-transit-ID6Hnz3h.html",
+  "features": {
+    "accessories": [
+      "Ford Transit 350L Tdci",
+      "przebieg 130 000km",
+      "silnik 2,49 osobowy",
+      "klima",
+      "super stan",
+      "idealny na adaptacje na kampera"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Ford Transit 350L Tdci ze SzwajcariPrzebieg 130 000km Potwierdzam zgodność przebiegu pod odpowiedzialnościa karną I finansowąSilnik 2,49 osobowyKlimasuper stanIDEALNY NA ADAPTACJE NA KAMPERA !!!!!!!WIĘCEJ INFO TELEFONICZNIE",
+  "extraction_timestamp": "2025-07-19T23:03:58.782179",
+  "model_used": "gpt-4o-mini"
+}

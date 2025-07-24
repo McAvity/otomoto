@@ -1,0 +1,31 @@
+{
+  "car_id": "ID6Hp1Vf",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/iveco-daily-kamper-ID6Hp1Vf.html",
+  "features": {
+    "accessories": [
+      "IVECO DAILY",
+      "sprowadzony z Niemiec",
+      "sprawne",
+      "pali",
+      "jeździ"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "IVECO DAILY sprowadzony z Niemiec.W dokumentach zarejestrowany jako \"WOM MOBIL\"Auto sprowadzone w stanie jak na zdjęciach.Sprawne,pali i jeździ.Tel. Wyświetl numer lub Wyświetl numer",
+  "extraction_timestamp": "2025-07-19T23:05:42.209020",
+  "model_used": "gpt-4o-mini"
+}

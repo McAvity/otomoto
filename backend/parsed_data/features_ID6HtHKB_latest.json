@@ -1,0 +1,33 @@
+{
+  "car_id": "ID6HtHKB",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/ford-transit-ID6HtHKB.html",
+  "features": {
+    "accessories": [
+      "webasto",
+      "ogrzewanie przedniej szyby",
+      "tempomat",
+      "łóżko",
+      "blat kuchenny",
+      "zlew",
+      "przenośna toaleta"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "inside",
+    "has_water_tap_inside": true,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": true,
+    "has_air_conditioning": false,
+    "van_height": "unknown",
+    "shower_location": "none",
+    "confidence_score": 1.0
+  },
+  "source_description": "Bus ford transit w pełni sprawy. Posiadam go od 2021r. zakupiony ze spółki skarbu państwa gdzie był w pełni serwisowany w ASO. Zarejestrowany na 6 osób. Posiada webasto, ogrzewanie przedniej szyby i tempomat.Projekt kamper vana do dokończenia wg własnego uznania. Zabudowane jest łóżko, blat kuchenny ze zlewem i przenośna toaleta.Nowe sprzęgło z dwumasąOC ważne do 04.05.2026rPrzegląd do 18.07.2025rNiezawodny w terenie, idealny na długie wyprawy! 4x4Więcej informacji pod numerem telefonu",
+  "extraction_timestamp": "2025-07-19T23:03:45.298132",
+  "model_used": "gpt-4o-mini"
+}

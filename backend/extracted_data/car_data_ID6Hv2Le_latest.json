@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/citroen-jumper-ID6Hv2Le.html",
-  "timestamp": "2025-07-18T10:02:37.575Z",
   "data": {
     "car_name": "Citroën Jumper",
     "price": "62 000",
@@ -19,7 +18,6 @@
     "model": "Jumper",
     "year": "2008",
     "user_notes": "wysoki strych, TV, fajny design.",
-    "user_grade": 4,
-    "user_timestamp": "2025-07-18T10:02:37.575Z"
+    "user_grade": 4
   }
 }

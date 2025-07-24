@@ -1,0 +1,37 @@
+{
+  "car_id": "ID6Hw5A1",
+  "url": "https://www.otomoto.pl/dostawcze/oferta/renault-master-ID6Hw5A1.html",
+  "features": {
+    "accessories": [
+      "elektryczne szyby",
+      "klimatyzacja",
+      "elektryczne lusterka",
+      "podgrzewane lusterka",
+      "poduszki powietrzne",
+      "ASP",
+      "centralny zamek na pilota",
+      "hak holowniczy",
+      "immobilizer",
+      "wspomaganie kierownicy",
+      "ABS"
+    ],
+    "bed_orientation": "unknown",
+    "bed_length": null,
+    "roof_height": "unknown",
+    "has_solar_panels": false,
+    "front_back_connection": "unknown",
+    "kitchen_location": "unknown",
+    "has_water_tap_inside": false,
+    "has_roof_window": false,
+    "has_door_window": false,
+    "stealth_level": "unknown",
+    "has_webasto": false,
+    "has_air_conditioning": true,
+    "van_height": "unknown",
+    "shower_location": "unknown",
+    "confidence_score": 1.0
+  },
+  "source_description": "Witam mam do sprzedania świeżo sprowadzonego z NiemiecRenaulta Mastera w wersji L1 H1. Auto jest Przerobione na Mini kamperaW Niemczech od nowości 1-właścicielSamochód jet już zarejestrowany w Polsce ma ważne OC oraz Badanie Techniczne do czerwca 2026rokuOpony wzmacniane w bardzo dobrym stanie.Wystawiam Fakturę vat-marża która zwalnia kupującego z opłaty skarbowej 2%ROK PRODUKCJI : 2007Samochód posiada niezawodny silnik diesla o pojemności 2,5l i mocy 120-koniPrzebieg auta to 250.tys km potwierdzony fakturami z Niemieckich przeglądów oraz z książką serwisowąAuto jest zadbane w środku jak i na zewnątrz, silnik skrzynia biegów oraz zawieszenie pracują bez zarzutów.Na wyposażeniu ma:- ELEKTRYCZNE SZYBY- KLIMATYZACJA- ELEKTRYCZNE LUSTERKA- PODGRZEWANE LUSTERKA- PODUSZKI POWIETRZNE- ASP- CENTRALNY ZAMEK NA PILOTA +2 KLUCZYKI- HAK HOLOWNICZY- IMMOBILIZER- WSPOMAGANIE KIEROWNICY- ABSCena 19.900zł do uzgodnieniaKontakt pod nr.tel.Wyświetl numerSamochód jest do obejrzenia w miejscowości Raków trasa Kielce Staszów",
+  "extraction_timestamp": "2025-07-19T23:03:38.542203",
+  "model_used": "gpt-4o-mini"
+}
