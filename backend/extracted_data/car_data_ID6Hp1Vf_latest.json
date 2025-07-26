@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/iveco-daily-kamper-ID6Hp1Vf.html",
-  "timestamp": "2025-07-14T23:36:52.902Z",
   "data": {
     "car_name": "Iveco Daily Kamper",
     "price": "21 500",
@@ -19,7 +18,6 @@
     "model": "Daily Kamper",
     "year": "2003",
     "user_notes": "",
-    "user_grade": 1,
-    "user_timestamp": "2025-07-14T23:36:52.902Z"
+    "user_grade": 1
   }
 }
