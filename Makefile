@@ -1,5 +1,5 @@
 run:
-	cd backend && uv run uvicorn main:app  --reload
+	cd backend && make run
 
 # Test targets
 test-setup:

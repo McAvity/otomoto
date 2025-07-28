@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/volkswagen-t5-ID6HsZMI.html",
-  "timestamp": "2025-07-14T23:43:45.663Z",
   "data": {
     "car_name": "Volkswagen T5",
     "price": "29 900",
@@ -18,8 +17,7 @@
     "brand": "Volkswagen",
     "model": "T5",
     "year": "2007",
-    "user_notes": "",
-    "user_grade": 3,
-    "user_timestamp": "2025-07-14T23:43:45.663Z"
+    "user_notes": "PNT99433 - ZLA REJESTRACJA, NIE ZAREJESTROWANY W POLSCE",
+    "user_grade": 3
   }
 }
