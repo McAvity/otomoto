@@ -95,6 +95,16 @@
             background-color: #f7fafc;
         }
         
+        tr.disabled {
+            background-color: #f7f7f7;
+            color: #999;
+            opacity: 0.7;
+        }
+        
+        tr.disabled:hover {
+            background-color: #f0f0f0;
+        }
+        
         .rating {
             display: flex;
             align-items: center;
@@ -286,7 +296,7 @@
             </thead>
             <tbody>
                 {% for car in cars %}
-                <tr>
+                <tr{% if car.disabled %} class="disabled"{% endif %}>
                     <td>
                         <div class="rating">
                             <div class="stars">

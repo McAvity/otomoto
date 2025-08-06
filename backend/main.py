@@ -120,6 +120,9 @@ def load_all_cars() -> List[Dict[str, Any]]:
                         user_grade = 0
                 car_data['user_grade'] = user_grade
                 
+                # Add disabled field with default false for existing records
+                car_data['disabled'] = car_data.get('disabled', False)
+                
                 cars.append(car_data)
                 
             except (json.JSONDecodeError, Exception) as e:
@@ -195,7 +198,8 @@ def get_known_cars():
                     'has_notes': bool(user_notes),
                     'user_notes': user_notes,
                     'car_name': car.get('car_name', ''),
-                    'price': car.get('price', '')
+                    'price': car.get('price', ''),
+                    'disabled': car.get('disabled', False)
                 })
         
         return {"known_cars": known_cars}
@@ -214,10 +218,34 @@ def save_extracted_data(data: ExtractedData):
         # New filename format: car_data_{car_id}_latest.json
         filename = f"car_data_{car_id}_latest.json"
         filepath = STORAGE_DIR / filename
+                
+        # Check if car_name is empty in the incoming data
+        incoming_car_name = data.data.get('car_name', '').strip()
         
-        # Save the extracted data (overwrites previous data for this car)
+        if not incoming_car_name:
+            # Load existing data if file exists
+            final_data = {}
+            if filepath.exists():
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        final_data = json.load(f).get('data', {})
+                except (json.JSONDecodeError, KeyError):
+                    pass  # If file is corrupted, start fresh
+            final_data['disabled'] = True
+        else:
+            # If car_name has content, use new data and set disabled to false
+            final_data = data.data.copy()
+            final_data['disabled'] = False
+        
+        # Create the final payload
+        final_payload = {
+            "url": data.url,
+            "data": final_data
+        }
+        
+        # Save the extracted data
         with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(data.dict(), f, ensure_ascii=False, indent=2)
+            json.dump(final_payload, f, ensure_ascii=False, indent=2)
         
         # Update index with new data
         update_index(car_id, filename)
