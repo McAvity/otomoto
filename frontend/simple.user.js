@@ -290,7 +290,7 @@
         // Try to reveal and extract phone number and VIN
         extractedData.phone = await extractPhoneNumber();
         extractedData.vin = await extractVIN();
-        
+
         // Parse compound field (car_type_status contains: "Używany", "Do negocjacji")
         const carTypeStatus = getTextContent(extractionConfig.car_type_status);
         const statusParts = carTypeStatus.split(' • ').map(s => s.trim());
@@ -540,140 +540,33 @@
             
             // Look for the "Wyświetl VIN" link with jQuery
             const $links = $('a, button, div[role="button"], span[role="button"]');
-            let showVinLink = null;
-            
-            console.log(`Found ${$links.length} clickable elements to check for VIN`);
-            
-            $links.each(function() {
-                const $link = $(this);
-                const linkText = $link.text().trim().toLowerCase();
-                const ariaLabel = ($link.attr('aria-label') || '').toLowerCase();
-                
-                // Check for various forms of "show VIN" text
-                if (linkText.includes('Wyświetl VIN') || linkText.includes('VIN')) {
-                    
-                    showVinLink = this;
-                    console.log('Found VIN link:', linkText, 'aria-label:', ariaLabel);
-                    return false; // Break out of each loop
-                }
+
+            const $vinLinks = $links.filter(function() {
+                const text = $(this).text().toLowerCase();
+                return text.includes('vin');
             });
             
-            // Also try specific selectors for VIN
-            if (!showVinLink) {
-                const selectors = [
-                    'a[href*="vin"]',
-                    'button[class*="vin"]',
-                    '[data-testid*="vin"]',
-                    'a[class*="vin"]',
-                    '.vin-link',
-                    '.show-vin'
-                ];
-                
-                for (const selector of selectors) {
-                    try {
-                        const $element = $(selector).first();
-                        if ($element.length && $element.text().toLowerCase().includes('wyświetl')) {
-                            showVinLink = $element[0];
-                            console.log('Found VIN link via selector:', selector);
-                            break;
-                        }
-                    } catch (e) {
-                        // Ignore selector errors
-                    }
+            console.log('Clicking VIN reveal link...');
+            
+            try {
+                $vinLinks.click();
+            } catch (e) {
+                // Fallback to programmatic click
+                const clickEvent = new MouseEvent('click', {
+                    view: window,
+                    bubbles: true,
+                    cancelable: true
+                });
+                for (let i = 0; i < $vinLinks.length; i++) {
+                    $vinLinks[i].dispatchEvent(clickEvent);
                 }
             }
             
-            if (showVinLink) {
-                console.log('Clicking VIN reveal link...');
-                
-                // Scroll to link and ensure it's visible
-                showVinLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                await new Promise(resolve => setTimeout(resolve, 500));
-                
-                // Try different click methods
-                try {
-                    showVinLink.click();
-                } catch (e) {
-                    // Fallback to programmatic click
-                    const clickEvent = new MouseEvent('click', {
-                        view: window,
-                        bubbles: true,
-                        cancelable: true
-                    });
-                    showVinLink.dispatchEvent(clickEvent);
-                }
-                
-                console.log('Waiting for VIN to be revealed...');
-                // Wait for VIN to be revealed
-                await new Promise(resolve => setTimeout(resolve, 2000));
-                
-                // Now try to extract the VIN from multiple possible locations
-                const vinSelectors = [
-                    extractionConfig.vin,
-                    '[data-testid*="vin"]',
-                    '.vin-number',
-                    '.vehicle-vin',
-                    '.vin-value',
-                    '.vin-code'
-                ];
-                
-                for (const selector of vinSelectors) {
-                    try {
-                        const vinText = $(selector).first().text().trim();
-                        if (vinText) {
-                            console.log(`Checking VIN selector ${selector}:`, vinText);
-                            
-                            // Look for VIN pattern (17 alphanumeric characters)
-                            const vinMatch = vinText.match(/\b[A-HJ-NPR-Z0-9]{17}\b/i);
-                            if (vinMatch) {
-                                const vin = vinMatch[0].toUpperCase();
-                                console.log('Extracted VIN:', vin);
-                                return vin;
-                            }
-                            
-                            // Also check for masked VIN pattern (XXXXXXXXXXXXXXXXX)
-                            const maskedVinMatch = vinText.match(/X{17}/);
-                            if (maskedVinMatch) {
-                                console.log('Found masked VIN:', maskedVinMatch[0]);
-                                return maskedVinMatch[0];
-                            }
-                        }
-                    } catch (e) {
-                        // Continue to next selector
-                    }
-                }
-                
-                // Check if the link itself now shows the VIN
-                const linkText = showVinLink.textContent.trim();
-                const linkVinMatch = linkText.match(/\b[A-HJ-NPR-Z0-9]{17}\b/i);
-                if (linkVinMatch) {
-                    const vin = linkVinMatch[0].toUpperCase();
-                    console.log('Found VIN in link text:', vin);
-                    return vin;
-                }
-                
-                // Check for masked VIN in link
-                const linkMaskedVinMatch = linkText.match(/X{17}/);
-                if (linkMaskedVinMatch) {
-                    console.log('Found masked VIN in link text:', linkMaskedVinMatch[0]);
-                    return linkMaskedVinMatch[0];
-                }
-                
-                console.log('No VIN found after clicking link');
-            } else {
-                console.log('No "Wyświetl VIN" link found');
-            }
-            
-            // Fallback: try to get VIN without clicking
-            const fallbackVin = getTextContent(extractionConfig.vin);
-            if (fallbackVin) {
-                console.log('Fallback VIN extraction:', fallbackVin);
-                return fallbackVin;
-            }
-            
-            console.log('No VIN extracted');
-            return '';
-            
+            console.log('Waiting for VIN to be revealed...');
+            // Wait for VIN to be revealed
+            await new Promise(resolve => setTimeout(resolve, 500));
+
+            return getValueByLabel('VIN');
         } catch (error) {
             console.error('Failed to extract VIN:', error);
             return '';
