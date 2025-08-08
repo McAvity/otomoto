@@ -312,6 +312,10 @@
         // Extract brand, model, and year using label-based approach
         extractedData.brand = getValueByLabel('Marka pojazdu');
         extractedData.model = getValueByLabel('Model pojazdu');
+        extractedData.registration_number = getValueByLabel("Numer rejestracyjny pojazdu");
+        extractedData.first_registration_date = getValueByLabel("Data pierwszej rejestracji w historii pojazdu");
+        // extractedData.vin = getValueByLabel("VIN");
+
         const yearFromLabel = getValueByLabel('Rok produkcji');
         
         // Use label-based year if found, otherwise fall back to original method
@@ -367,25 +371,11 @@
                     const $labelP = $labelParagraphs.eq(i);
                     
                     // Strategy 1: Next sibling <p>
-                    const valueText = $labelP.next('p').text().trim();
+                    const valueText = $labelP.parent().next().text().trim();
                     if (valueText) {
                         console.log(`Found ${labelText} value in next <p>:`, valueText);
                         return valueText;
-                    }
-                    
-                    // Strategy 2: Any following sibling <p>
-                    const followingText = $labelP.nextAll('p').first().text().trim();
-                    if (followingText) {
-                        console.log(`Found ${labelText} value in following <p>:`, followingText);
-                        return followingText;
-                    }
-                    
-                    // Strategy 3: Next <p> in parent container
-                    const parentNextText = $labelP.parent().next().find('p').first().text().trim();
-                    if (parentNextText) {
-                        console.log(`Found ${labelText} value in parent's next <p>:`, parentNextText);
-                        return parentNextText;
-                    }
+                    }                    
                 }
             }
             
