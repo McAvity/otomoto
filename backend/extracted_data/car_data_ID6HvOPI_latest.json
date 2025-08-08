@@ -16,8 +16,11 @@
     "cubic_capacity": "2 280 cm3",
     "brand": "Fiat",
     "model": "Ducato Kempingowy",
+    "registration_number": "BL77567",
+    "first_registration_date": "31 sierpnia 2015",
     "year": "2015",
     "user_notes": "L3H3?\nDROGI, ZERO STRYCHU",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

@@ -16,8 +16,11 @@
     "cubic_capacity": "2 500 cm3",
     "brand": "Volkswagen",
     "model": "T5",
+    "registration_number": "",
+    "first_registration_date": "25 listopada 2007",
     "year": "2007",
     "user_notes": "PNT99433 - ZLA REJESTRACJA, NIE ZAREJESTROWANY W POLSCE",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

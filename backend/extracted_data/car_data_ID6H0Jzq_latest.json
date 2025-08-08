@@ -16,8 +16,11 @@
     "cubic_capacity": "2 200 cm3",
     "brand": "Renault",
     "model": "Master",
+    "registration_number": "",
+    "first_registration_date": "",
     "year": "2005",
     "user_notes": "???\n???\n???\n\ncalkiem calkiem, ale zadnych danych nie ma",
-    "user_grade": 4
+    "user_grade": 4,
+    "disabled": false
   }
 }

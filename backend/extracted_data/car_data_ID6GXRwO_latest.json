@@ -16,8 +16,11 @@
     "cubic_capacity": "1 968 cm3",
     "brand": "Volkswagen",
     "model": "Crafter kampervan",
+    "registration_number": "WOR 74241",
+    "first_registration_date": "",
     "year": "2011",
     "user_notes": "",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

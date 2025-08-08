@@ -18,6 +18,7 @@
     "model": "MASTER",
     "year": "2016",
     "user_notes": "CENA NETTO, I TRZEBA DOKONCZYC PRACE",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": true
   }
 }

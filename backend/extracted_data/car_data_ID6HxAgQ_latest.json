@@ -4,7 +4,7 @@
     "car_name": "Fiat Ducato",
     "price": "74 500",
     "location": "Tychy, Śląskie",
-    "description": "Witam mam na sprzedaż kampervana. Jest to fiat Ducato z 2007 r. Wersja l2h2 Z najlepszą jednostką pod maską 3.0 JTD.Jest to kamper całoroczny,ocieplony,posiadający ogrzewanie Webasto oryginalne,zbiornik na wodę 100l i panel słoneczny ładujący akumulator hotelowy i ładowanie z alternatora,okna dachowe, dużą lodówkę kamperową firmy abem,która pobiera znikome ilości prądu. Przetwornicę 220v 2000w,chwilowa 4000, także można podłączyć prawie wszystko .Zabudowę robiłem sam,zrobiłem ją tak by z zewnątrz nikt nie podejrzewał że to jest kamper. Zero klapek do wlewów,klapek do toalet it'd . Można stać i spać w środku miasta i nikt nie pomyśli że to kamper. Wygląda jak zwykła wersja osobowa panorama którą wcześniej ten samochód był.Jest to kamper 4 osobowy,także można komfortowo podróżować i spać we 4. Wszystkie naprawy robione na bieżąco, część jest nagrana na moim kanale YouTube. Do zrobienia jest tylko piasta ze względu na błąd czujnika ABS który wymieniłem,lecz problem jest w pierścieniu ABS na piaście. W razie pytań proszę dzwonić,bo opisać wszystko w opisie jest ciężko,bo trzeba by było książkę napisać. handlarze i komisy proszę nie dzwonić ponieważ nie spieszy mi się że sprzedażą. Autko sprzedaje ponieważ buduję dom i niestety pewne sprawy trzeba odłożyć na potem. Więcej na moim kanale YouTube. Jak mi się coś jeszcze przypomni to napiszę.",
+    "description": "Witam mam na sprzedaż kampervana. Jest to fiat Ducato z 2007 r. Wersja l2h2 Z najlepszą jednostką pod maską 3.0 JTD.Jest to kamper całoroczny,ocieplony,posiadający ogrzewanie Webasto oryginalne,zbiornik na wodę 100l i panel słoneczny ładujący akumulator hotelowy i ładowanie z alternatora,okna dachowe, dużą lodówkę kamperową firmy abem,która pobiera znikome ilości prądu. Przetwornicę 220v 2000w,chwilowa 4000, także można podłączyć prawie wszystko .Zabudowę robiłem sam,zrobiłem ją tak by z zewnątrz nikt nie podejrzewał że to jest kamper. Zero klapek do wlewów,klapek do toalet it'd . Można stać i spać w środku miasta i nikt nie pomyśli że to kamper. Wygląda jak zwykła wersja osobowa panorama którą wcześniej ten samochód był.Jest to kamper 4 osobowy,także można komfortowo podróżować i spać we 4.zarejestrowany jako specjalny kempingowy.wszystkie naprawy robione na bieżąco, część jest nagrana na moim kanale YouTube. Do zrobienia jest tylko piasta ze względu na błąd czujnika ABS który wymieniłem,lecz problem jest w pierścieniu ABS na piaście. Można normalnie jeździć. W razie pytań proszę dzwonić,bo opisać wszystko w opisie jest ciężko,bo trzeba by było książkę napisać. Kamper jest samowystarczalny i po zakupie można wsiadać i ruszać w świat. Handlarze proszę nie dzwonić ponieważ nie spieszy mi się że sprzedażą. Autko sprzedaje ponieważ buduję dom i niestety pewne sprawy trzeba odłożyć na potem. Więcej na moim kanale YouTube. Jak mi się coś jeszcze przypomni to napiszę.",
     "phone": "788151950",
     "vin": "Zfa25000001149000",
     "car_type": "Używany · 2007 · Do negocjacji",
@@ -16,8 +16,11 @@
     "cubic_capacity": "2 999 cm3",
     "brand": "Fiat",
     "model": "Ducato",
+    "registration_number": "St2590v",
+    "first_registration_date": "16 marca 2007",
     "year": "2007",
     "user_notes": "Zfa25000001149000 - samochód specjalny, kempingowy\nSt2590v - EURO 4\n16.03.2007\n\ndrogi",
-    "user_grade": 4
+    "user_grade": 4,
+    "disabled": false
   }
 }

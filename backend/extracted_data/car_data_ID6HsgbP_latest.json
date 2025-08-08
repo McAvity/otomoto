@@ -16,8 +16,11 @@
     "cubic_capacity": "1 968 cm3",
     "brand": "Volkswagen",
     "model": "T5 Kamper, Automat, Hak, Zabudowa",
+    "registration_number": "SRCNE57",
+    "first_registration_date": "25 listopada 2011",
     "year": "2011",
     "user_notes": "calkiem fajny, ale DROGI",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

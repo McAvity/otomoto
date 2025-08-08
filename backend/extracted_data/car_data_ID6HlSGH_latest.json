@@ -4,20 +4,23 @@
     "car_name": "Renault TRAFIC",
     "price": "36 000",
     "location": "Nysa, nyski, Opolskie",
-    "description": "Witam,Proponuje do sprzedania mojego CAMPERA, samochód to mój projekt, przebudowany, adaptowany z kontenera ambulance, wyposażony w instalację 220V, instalację wodną, kuchenkę gazową, klimatyzację, górny pokład - bagażnik, mnóstwo schowków, szuflad, szafek, oświetlenie....Bazę stanowi Renault TRAFIC z 2008 roku z wymienionym super ekonomicznym \"świeżym\" silnikiem 2.0 dCI 114KM...W ogłoszeniu wstawiam klika zdjęć, ale polecam kontakt i oględziny, które na pewno odkryją wszystkie zalety tego projektu, więc.... zachęcam do kontaktu i skorzystania z oferty.Na wszystkie pytania odpowiem telefonicznie 606120589 bądź poprzez wiadomości w portalu otomoto.",
+    "description": "Witam,Proponuje do sprzedania mojego CAMPERA, samochód to mój projekt, przebudowany, adaptowany z kontenera ambulance, wyposażony w instalację 220V, instalację wodną, kuchenkę gazową, klimatyzację, górny pokład - bagażnik, mnóstwo schowków, szuflad, szafek, oświetlenie....Bazę stanowi Renault TRAFIC z 2008 roku z wymienionym super ekonomicznym \"świeżym\" silnikiem 2.0 dCI 114KM...obecny stan licznika 161 400 km.W ogłoszeniu wstawiam klika zdjęć, ale polecam kontakt i oględziny, które na pewno odkryją wszystkie zalety tego projektu, więc.... zachęcam do kontaktu i skorzystania z oferty.Na wszystkie pytania odpowiem telefonicznie Wyświetl numer bądź poprzez wiadomości w portalu otomoto.",
     "phone": "606120589",
     "vin": "VF1ELBHB68V314434",
     "car_type": "Używany · 2008 · Do negocjacji",
     "negotiable": "Używany · 2008 · Do negocjacji",
-    "mileage": "600 000 km",
+    "mileage": "161 400 km",
     "fuel": "Diesel",
     "transmission": "Manualna",
     "vehicle_type": "Kamper",
     "cubic_capacity": "1 995 cm3",
     "brand": "Renault",
     "model": "TRAFIC",
+    "registration_number": "ONY44460",
+    "first_registration_date": "25 lutego 2008",
     "year": "2008",
     "user_notes": "NYSA, klamot (wysoki - mosty)",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

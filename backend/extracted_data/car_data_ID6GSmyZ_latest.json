@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6GSmyZ.html",
-  "timestamp": "2025-07-14T23:54:21.095Z",
   "data": {
     "car_name": "Mercedes-Benz Sprinter",
     "price": "37 500",
@@ -20,6 +19,7 @@
     "year": "2007",
     "user_notes": "",
     "user_grade": 3,
-    "user_timestamp": "2025-07-14T23:54:21.095Z"
+    "user_timestamp": "2025-07-14T23:54:21.095Z",
+    "disabled": true
   }
 }

@@ -18,6 +18,7 @@
     "model": "Sprinter",
     "year": "2001",
     "user_notes": "???\nDTR88849 - EURO 3\n???\nSTARY\n\nduzy solar, lozko wszerz, wysoki trych\nWROCLAW",
-    "user_grade": 4
+    "user_grade": 4,
+    "disabled": true
   }
 }

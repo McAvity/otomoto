@@ -18,6 +18,7 @@
     "model": "Vito 115cdi",
     "year": "2005",
     "user_notes": "ca¬kiem dobry",
-    "user_grade": 4
+    "user_grade": 4,
+    "disabled": true
   }
 }

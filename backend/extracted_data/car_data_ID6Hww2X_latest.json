@@ -18,6 +18,7 @@
     "model": "Transporter",
     "year": "2006",
     "user_notes": "POZNAN\nkrzyczy ze kamper\ntrudno ocenic jakiej dlugosci lozko",
-    "user_grade": 4
+    "user_grade": 4,
+    "disabled": true
   }
 }

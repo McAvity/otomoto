@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/opel-movano-ID6Hoih0.html",
-  "timestamp": "2025-07-14T23:55:32.781Z",
   "data": {
     "car_name": "Opel Movano",
     "price": "39 999",
@@ -20,6 +19,7 @@
     "year": "2017",
     "user_notes": "",
     "user_grade": 0,
-    "user_timestamp": "2025-07-14T23:55:32.781Z"
+    "user_timestamp": "2025-07-14T23:55:32.781Z",
+    "disabled": true
   }
 }

@@ -2,9 +2,9 @@
   "url": "https://www.otomoto.pl/dostawcze/oferta/peugeot-expert-ID6Hxg1l.html",
   "data": {
     "car_name": "Peugeot Expert",
-    "price": "49 500",
+    "price": "48 500",
     "location": "Mikołów, Centrum",
-    "description": "Mam do sprzedania pięknego Peugeota Experta 2.0 z2017 roku. W zabudowie kamperowej . Wyposażone w westo, lodówkę , zlew ,lóżko, gniazdka ,przetwornice, szafki. Tylne drzwi oddzielone od środka z doddatkową przestrzenią załadunkową.W aucie został wymieniony silnik , który ma zrobione 120 000 km. Musimy sprzedać ponieważ powiększyła nam się rodzinka a z małym dzieckiem troszkę za mały.",
+    "description": "Mam do sprzedania pięknego Peugeota Experta 2.0 z2017 roku. W zabudowie kamperowej . Wyposażone w westo, lodówkę , zlew ,lóżko, gniazdka ,przetwornice, szafki. Tylne drzwi oddzielone od środka z doddatkową przestrzenią załadunkową.W aucie został wymieniony silnik , który ma zrobione 120 000 km.Musimy sprzedać ponieważ powiększyła nam się rodzinka a z małym dzieckiem troszkę za mały.",
     "phone": "507003517",
     "vin": "VF3VFAHKHHZ012618",
     "car_type": "Używany · 2017",
@@ -16,8 +16,11 @@
     "cubic_capacity": "1 997 cm3",
     "brand": "Peugeot",
     "model": "Expert",
+    "registration_number": "smi42576",
+    "first_registration_date": "17 lipca 2017",
     "year": "2017",
     "user_notes": "vf3vfahkhhz012618 - NIE KAMPER\nsmi42576 - EURO 6\n17.07.2017",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

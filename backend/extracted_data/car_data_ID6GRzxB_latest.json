@@ -4,7 +4,7 @@
     "car_name": "Peugeot Partner",
     "price": "56 800",
     "location": "Cieśle, oleśnicki, Dolnośląskie",
-    "description": "Peugeot BoxerRejestracja od nowości specjalny kamper.Oryginalna zabudowa Burow. Karoseria bez rys czy wgniotek, podłoga zdrowa bez rdzy czy dziur.Nowy akumulator hotelowy Lifepo4 100ah z bluetooth, nowy sterownik Mppt .1 właściciel przez 22 lata.***Ogrzewanie gazowe Truma - butla pod siedziskiem z lewej strony.***lodówka 220 +12V z akumulatora hotelowego***solar*** przetwornica 220v dwa gniazda 220.***Prysznic zewnętrzny zasilany z auta + namiot prysznicowy nowy .***Duży zbiornik na szarą wodę pod autem.***3 zbiorniki na wodę czystą 3x16 l idealnie pasujące do szafki pod prawym siedziskiem patrząc od tyłu***Elektryczny schodek .***Radio android z navi.***Roleta zewnętrzna Flamma***Bagażnik rowerowy Thule, relingi Thule***wc nowy nie używany Thetford plus chemia i papier ;)Na razie przejechaliśmy nim 1000 km po kraju bez problemów żadnych.",
+    "description": "Peugeot Boxer oczywiście nie Partner źle wybrałam z formularza i już zmienić nie można. Autko zarejestrowane PL, po przeglądzie ubezpieczone.Rejestracja od nowości specjalny kamper 4 osobowy .Oryginalna zabudowa Burow. Karoseria bez rys czy wgniotek, podłoga zdrowa bez rdzy czy dziur.Nowy akumulator hotelowy Lifepo4 100ah z bluetooth, nowy sterownik Mppt . Zimowy pokrowiec na auto . Plandeka pod auto na trawę.1 właściciel przez 22 lata.***Ogrzewanie gazowe Truma - butla pod siedziskiem z lewej strony.*** czujnik tlenków i czadu ***lodówka 220 +12V z akumulatora hotelowego***solar*** przetwornica 220v dwa gniazda 220.***Prysznic zewnętrzny zasilany z auta + namiot prysznicowy nowy + przenośny gazowy przepływowy podgrzewacz wody ***Duży zbiornik na szarą wodę pod autem.***3 zbiorniki na wodę czystą 3x16 l idealnie pasujące do szafki pod prawym siedziskiem patrząc od tyłu - na foto jest 1 ***Elektryczny schodek .***Radio android z navi.***Roleta zewnętrzna Flamma***Bagażnik rowerowy Thule, relingi Thule***wc nowy nie używany Thetford plus chemia i papier ;*** łóżko 188x122cmNa razie przejechaliśmy nim 1000 km po kraju bez problemów żadnych.",
     "phone": "793727761",
     "vin": "WDB12345HKJMN7864",
     "car_type": "Używany · 2000 · Do negocjacji",
@@ -16,8 +16,11 @@
     "cubic_capacity": "2 800 cm3",
     "brand": "Peugeot",
     "model": "Partner",
+    "registration_number": "DOL12345",
+    "first_registration_date": "12 lutego 2000",
     "year": "2000",
     "user_notes": "",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

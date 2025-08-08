@@ -2,8 +2,8 @@
   "url": "https://www.otomoto.pl/dostawcze/oferta/iveco-kamper-maxi-xxxl-3500-hak-ID6Hvk0T.html",
   "data": {
     "car_name": "Iveco KAMPER MAXI XXXL 3500 HAK",
-    "price": "57 900",
-    "location": "Zobacz więcej ofert (26) tego sprzedawcy",
+    "price": "55 900",
+    "location": "Zobacz więcej ofert (11) tego sprzedawcy",
     "description": "IVECO KAMPER 35C18Rok produkcji:2007.Pierwsza rej. w Polsce 18.06. 2025DVDKAMERA COFANIAKLIMATYZACJAPANELE SOLARNYPRZETWORNICA Z 12 NA 230VPrzebieg: TYLKO 145 777 km!Silnik: Diesel 3,0 LNA PODUSZKACHORZEWANIE POSTOJOWEKolor nadwozia: biały.Przegląd ważny do października 2026Ubezpieczenie ważne 06/ 2026Akumulator zakupiony 02/06/ 2025 (na gwarancji).DMC 3500 KGHAK 3500 KGStan techniczny:Pojazd w dobrym stanie, regularnie serwisowany (pierwszy właściciel w Polsce).Miejsca siedzące: 4REJESTROWANY 5 OSÓBKuchnia: Lodówka, kuchenka, zlewButla gazowa: GasBank LS 11 kg -System ogrzewania wody: Boiler do ciepłej wody zamontowany na podwoziu.Elektryka: Ładowanie akumulatora przez alternator (Orion Tr Smart 12 | 12), prostownik do panela MPPT 100 | 50, bateria LiFePO4 12.8V - 600 Ah, inwerter prądu AC-DC.GOTOWY DO WYJAZDU NA WYMAŻONE WAKACJIEPOLECAM WIĘCEJ POD Wyświetl numer",
     "phone": "601615857",
     "vin": "7 lipca 2007",
@@ -16,8 +16,11 @@
     "cubic_capacity": "2 999 cm3",
     "brand": "Iveco",
     "model": "KAMPER MAXI XXXL 3500 HAK",
+    "registration_number": "",
+    "first_registration_date": "7 lipca 2007",
     "year": "2007",
     "user_notes": "malo stealth",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

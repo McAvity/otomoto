@@ -16,8 +16,11 @@
     "cubic_capacity": "2 198 cm3",
     "brand": "Peugeot",
     "model": "Boxer",
+    "registration_number": "FZI 7586A",
+    "first_registration_date": "17 września 2009",
     "year": "2009",
     "user_notes": "VF3YCAMFC11617783 - NIE KAMPER\nFZI7586A - EURO 4\n17.09.2009\n\nbezsensowna ubikacja, chyba ze to prysznic?",
-    "user_grade": 4
+    "user_grade": 4,
+    "disabled": false
   }
 }

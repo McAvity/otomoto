@@ -9,15 +9,18 @@
     "vin": "Pp12345",
     "car_type": "Używany · 2006 · Do negocjacji",
     "negotiable": "Używany · 2006 · Do negocjacji",
-    "mileage": "1 km",
+    "mileage": "265 000 km",
     "fuel": "Diesel",
     "transmission": "Manualna",
     "vehicle_type": "Kamper",
     "cubic_capacity": "2 463 cm3",
     "brand": "Renault",
     "model": "Master",
+    "registration_number": "Pp12345",
+    "first_registration_date": "15 maja 2006",
     "year": "2006",
     "user_notes": "PP2022L - EURO 4\n\ndozy stol, zero strychu",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

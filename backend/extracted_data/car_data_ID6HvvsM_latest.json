@@ -2,7 +2,7 @@
   "url": "https://www.otomoto.pl/dostawcze/oferta/fiat-ducato-ID6HvvsM.html",
   "data": {
     "car_name": "Fiat Ducato",
-    "price": "38 000",
+    "price": "34 000",
     "location": "Osowo Leśne, starogardzki, Pomorskie",
     "description": "Sprzedam Fiat Ducato L2H1 z 2007 roku, zarejestrowany jako kamper na 3 osoby.Auto miało przy przebiegu 100tyś. wymieniony silnik na nowy w serwisie Fiata i jest na bieżąco serwisowane.Opis:* Silnik 2.2 Diesel, 100 KM* Klimatyzacja postojowa Yolco TC390 - na gwarancji* Zarejestrowany jako specjalny kempingowy na 3 osoby* Manualna skrzynia biegów* Wykonana konserwacja podwozia* Po wymianie oleju i filtrów* Hak holowniczy* Elektryczne szyby* Auto alarm* Tylne łóżko dla 2 osób (max 185 cm wzrostu)* Obrotowy fotel pasażera* Lodówka* Akumulator 100Ah + panel solarny* Ładowanie podczas jazdy* Przetwornica 1500W Volt",
     "phone": "506 080 550",
@@ -16,8 +16,11 @@
     "cubic_capacity": "2 198 cm3",
     "brand": "Fiat",
     "model": "Ducato",
+    "registration_number": "",
+    "first_registration_date": "",
     "year": "2007",
     "user_notes": "",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

@@ -16,8 +16,11 @@
     "cubic_capacity": "2 200 cm3",
     "brand": "Renault",
     "model": "Master",
+    "registration_number": "WS12345",
+    "first_registration_date": "1 stycznia 2001",
     "year": "2001",
     "user_notes": "podwojne lozko, 3 osoby, niski strych",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": false
   }
 }

@@ -2,7 +2,7 @@
   "url": "https://www.otomoto.pl/dostawcze/oferta/volkswagen-van-ID6HvJcN.html",
   "data": {
     "car_name": "Volkswagen Van",
-    "price": "40 000",
+    "price": "35 000",
     "location": "Gorzów Wielkopolski, Lubuskie",
     "description": "Sam. wygodny w podrozy wszedzie wjedzie I parkujeZdemontowany ambulans I zastosowany smart box ( kamper box) kuchenka zmywak-brudna czysta woda toalett turystyczna chlodziarka samochodowa ogrzewanie Webasto diesel rozprowadzenie klimatyzacji na tylnia czesc z wentylacja niezaleznaPralka turystycznaPo naprawach i serwisachNowy przegladPrzyciemniane szybyFotel passera obrotowy stolikPierwsze rej. w polsce 17.09.2020",
     "phone": "536951840",
@@ -16,8 +16,11 @@
     "cubic_capacity": "2 461 cm3",
     "brand": "Volkswagen",
     "model": "Van",
+    "registration_number": "FG4975L",
+    "first_registration_date": "2 września 2009",
     "year": "2009",
-    "user_notes": "",
-    "user_grade": 3
+    "user_notes": "FG4975L\nWV2ZZZ7HZ9H128250\n02.09.2009",
+    "user_grade": 3,
+    "disabled": false
   }
 }

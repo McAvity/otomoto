@@ -16,8 +16,11 @@
     "cubic_capacity": "2 287 cm3",
     "brand": "Fiat",
     "model": "DUCATO",
+    "registration_number": "WPR6983P",
+    "first_registration_date": "29 grudnia 2016",
     "year": "2016",
     "user_notes": "ZFA25000002B68741 - NIE KAMPER ALE wszystko demontowalne\nWPR6983P - EURO 5 M\n29.12.2016\n\nCENA: 75276 brutto",
-    "user_grade": 4
+    "user_grade": 4,
+    "disabled": false
   }
 }

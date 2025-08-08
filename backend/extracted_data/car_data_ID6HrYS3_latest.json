@@ -18,6 +18,7 @@
     "model": "Master",
     "year": "2004",
     "user_notes": "calkiem dobry",
-    "user_grade": 3
+    "user_grade": 3,
+    "disabled": true
   }
 }

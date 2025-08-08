@@ -16,8 +16,11 @@
     "cubic_capacity": "2 143 cm3",
     "brand": "Mercedes-Benz",
     "model": "Sprinter",
+    "registration_number": "ZSZ43266",
+    "first_registration_date": "",
     "year": "2013",
     "user_notes": "???\nZSZ43266 - EURO 5\n???",
-    "user_grade": 0
+    "user_grade": 4,
+    "disabled": false
   }
 }

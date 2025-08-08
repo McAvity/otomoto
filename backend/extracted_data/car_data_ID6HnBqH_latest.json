@@ -1,6 +1,5 @@
 {
   "url": "https://www.otomoto.pl/dostawcze/oferta/mercedes-benz-sprinter-ID6HnBqH.html",
-  "timestamp": "2025-07-14T23:46:58.891Z",
   "data": {
     "car_name": "Mercedes-Benz Sprinter",
     "price": "29 990",
@@ -20,6 +19,7 @@
     "year": "2003",
     "user_notes": "",
     "user_grade": 3,
-    "user_timestamp": "2025-07-14T23:46:58.891Z"
+    "user_timestamp": "2025-07-14T23:46:58.891Z",
+    "disabled": true
   }
 }
