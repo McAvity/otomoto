@@ -276,6 +276,28 @@
             return { user_notes: '', user_grade: 0 };
         }
     }
+
+    // convert date from "DD Month YYYY" to "DD.MM.YYYY" format
+    function formatDate(dateString) {
+        const months = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca',
+            'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia'];
+        const dateParts = dateString.split(' ');
+        const day = dateParts[0];
+        const month = dateParts[1].toLowerCase();
+        const year = dateParts[2];
+
+        const monthIndex = months.indexOf(month);
+
+        if (monthIndex === -1) {
+            console.warn('Invalid month found in date string:', month);
+            return dateString;  // Return original string if month is invalid
+        }
+
+        // Pad day and month with leading zero if needed
+        const paddedDay = day.padStart(2, '0');
+        const paddedMonth = String(monthIndex + 1).padStart(2, '0');
+        return `${paddedDay}.${paddedMonth}.${year}`;
+    }
     
     // Extract data from page
     async function extractPageData() {
@@ -313,7 +335,7 @@
         extractedData.brand = getValueByLabel('Marka pojazdu');
         extractedData.model = getValueByLabel('Model pojazdu');
         extractedData.registration_number = getValueByLabel("Numer rejestracyjny pojazdu");
-        extractedData.first_registration_date = getValueByLabel("Data pierwszej rejestracji w historii pojazdu");
+        extractedData.first_registration_date = formatDate(getValueByLabel("Data pierwszej rejestracji w historii pojazdu"));
         // extractedData.vin = getValueByLabel("VIN");
 
         const yearFromLabel = getValueByLabel('Rok produkcji');
@@ -338,6 +360,10 @@
             if (!extractedData.model) {
                 extractedData.model = brandModelTexts.find(text => text !== extractedData.brand && text.length > 2) || '';
             }
+        }
+
+        if(extractedData.vin && extractedData.registration_number && extractedData.first_registration_date) {
+            extractedData.user_notes = `${extractedData.vin}\n${extractedData.registration_number}\n${extractedData.first_registration_date}`;
         }
         
         return extractedData;
@@ -635,6 +661,10 @@
             // Load existing user data
             contentElement.textContent = 'Loading previous notes...';
             const existingUserData = await loadExistingUserData();
+
+            if (!existingUserData.user_notes) {
+                existingUserData.user_notes = extractedCarData.user_notes;
+            }
             
             // Populate UI with existing data
             if (existingUserData.user_notes) {
