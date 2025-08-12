@@ -91,7 +91,7 @@
         notesTextArea.placeholder = 'Add your notes about this car...';
         notesTextArea.style.cssText = `
             width: 100%;
-            height: 100px;
+            height: 200px;
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 5px;
