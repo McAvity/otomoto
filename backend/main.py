@@ -6,6 +6,8 @@ from typing import Dict, Any, List
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response, HTMLResponse
+from fastapi.responses import RedirectResponse
+
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
@@ -148,7 +150,7 @@ def favicon():
 
 @app.get("/")
 def read_root():
-    return {"message": "Otomoto Script Backend is running"}
+    return RedirectResponse("/cars")
 
 @app.get("/message")
 def get_message():
