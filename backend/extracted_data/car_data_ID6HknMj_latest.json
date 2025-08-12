@@ -4,7 +4,7 @@
     "car_name": "Citroën Jumper-Van-kamper",
     "price": "67 900",
     "location": "Poznań, Nowe Miasto",
-    "description": "Citroen-Van-Kamper, przebudowany w 2023r, Jumper w b.dobrym stanie, od konserwacji na etapie budowy jak i układ jezdny i motor będzie b.dobrze się sprawował (hamulce, zawieszenie, rozrząd, rozrusznik, uszczelnienia, filtry, olej po wymianie-regeneracji. Auto Pewne, bez zciemy!Przyjazny w podróżowaniu po Europie - ekonomiczny w opłatach promowych, drogowych, parkingowych (nawet w ścisłych centrach stolic-miast).Wyposażony: lodówka, przetwornice, inst. 230V, zbiorniki wody czystej 45l, wody szarej 50l, WC kasetę, markizę, kamerę przód tył, oświetlenie led, zewnątrz, wewnątrz, butla gaz 11kg. wygodny do podróżowania w 2-os.",
+    "description": "Citroen-Van-Kamper, przebudowany w 2023r, Jumper w b.dobrym stanie, od konserwacji na etapie budowy jak i układ jezdny i motor będzie b.dobrze się sprawował (hamulce, zawieszenie, rozrząd, rozrusznik, uszczelnienia, filtry, olej po wymianie-regeneracji. Auto Pewne, bez zciemy!Przyjazny w podróżowaniu po Europie - ekonomiczny w opłatach promowych, drogowych, parkingowych (nawet w ścisłych centrach stolic-miast).Wyposażony: lodówka, przetwornice, inst. 230V, zbiorniki wody czystej 45l, wody szarej 50l, WC kasetę, markizę, kamerę przód tył, oświetlenie led, zewnątrz, wewnątrz, butla gaz 11kg. wygodny do podróżowania w 2-os. Podczas adaptacji pojazdu zrobione jest kilka 40-50 fotek, ocieplenia ,wygłuszenia, inst. el. ins. wod. inst. fotowolt. itp.",
     "phone": "601 963 745",
     "vin": "VF7YBTMFB12380707",
     "car_type": "Używany · 2013",
@@ -16,9 +16,11 @@
     "cubic_capacity": "2 198 cm3",
     "brand": "Citroën",
     "model": "Jumper-Van-kamper",
+    "registration_number": "PO7WX64",
+    "first_registration_date": "18.03.2022",
     "year": "2013",
     "user_notes": "VF7YBTMFB12380707 - ZLE DANE\nPO7WX64 - EURO 5\n18.03.2022\n\nniby prysznic, ale jak to ma dzialac?\nzdrzwi nieocieplone",
-    "user_grade": 5,
-    "disabled": true
+    "user_grade": 4,
+    "disabled": false
   }
 }
