@@ -91,7 +91,7 @@
         notesTextArea.placeholder = 'Add your notes about this car...';
         notesTextArea.style.cssText = `
             width: 100%;
-            height: 60px;
+            height: 100px;
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 5px;
@@ -279,6 +279,10 @@
 
     // convert date from "DD Month YYYY" to "DD.MM.YYYY" format
     function formatDate(dateString) {
+        if (!dateString || typeof dateString !== 'string' || dateString.length < 10) {
+            return dateString;
+        }
+        
         const months = ['stycznia', 'lutego', 'marca', 'kwietnia', 'maja', 'czerwca',
             'lipca', 'sierpnia', 'września', 'października', 'listopada', 'grudnia'];
         const dateParts = dateString.split(' ');
