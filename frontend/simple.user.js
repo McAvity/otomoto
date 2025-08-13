@@ -829,7 +829,7 @@
                 </div>
             `);
             
-            $saveButton.text('✅ Updated');
+            $saveButton.prop('disabled', false).text('Update Notes & Grade');
             
         } catch (error) {
             $contentElement.html(`
