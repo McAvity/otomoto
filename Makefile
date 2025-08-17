@@ -1,5 +1,8 @@
-run:
+start:
 	cd backend && make run
+
+stop:
+	cd backend && pkill -f "uvicorn"
 
 # Test targets
 test-setup:

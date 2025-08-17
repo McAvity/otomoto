@@ -95,6 +95,15 @@
             background-color: #f7fafc;
         }
         
+        tbody tr {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        tbody tr:hover {
+            background-color: #e2e8f0;
+        }
+        
         tr.disabled {
             background-color: #5b5454e9;
             color: #615b5b9c;
@@ -232,6 +241,11 @@
             }
         }
     </style>
+    <script>
+        function openCarDetail(carId) {
+            window.open('/car/' + carId, '_blank');
+        }
+    </script>
 </head>
 <body>
     <div class="header">
@@ -291,12 +305,12 @@
                     <th>Phone</th>
                     <th>VIN</th>
                     <th>Notes</th>
-                    <th>Last Saved</th>
+                    <th>Image</th>
                 </tr>
             </thead>
             <tbody>
                 {% for car in cars %}
-                <tr{% if car.disabled %} class="disabled"{% endif %}>
+                <tr{% if car.disabled %} class="disabled"{% endif %} data-car-id="{{ car.car_id }}" onclick="openCarDetail('{{ car.car_id }}')">
                     <td>
                         <div class="rating">
                             <div class="stars">
@@ -315,7 +329,7 @@
                     </td>
                     <td>
                         {% if car.url %}
-                        <a href="{{ car.url }}" target="_blank" class="car-link">
+                        <a href="{{ car.url }}" target="_blank" class="car-link" onclick="event.stopPropagation()">
                             <div class="car-name">{{ car.brand }} {{ car.model }}</div>
                         </a>
                         {% else %}
@@ -377,8 +391,12 @@
                         {% endif %}
                     </td>
                     <td>
-                        {% if car.user_timestamp %}
-                        <div class="last-saved">{{ car.user_timestamp[:10] }}</div>
+                        {% if car.image_main %}
+                        <div class="image">
+                            <a href="{{ car.image_main }}" target="_blank" onclick="event.stopPropagation()">
+                                <img src="{{ car.image_main }}" alt="{{ car.car_name }}" style="max-width:100px; max-height:100px;" />
+                            </a>
+                        </div>
                         {% else %}
                         <span style="color: #a0aec0;">—</span>
                         {% endif %}

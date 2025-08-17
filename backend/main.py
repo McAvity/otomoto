@@ -181,6 +181,30 @@ def get_cars_table(request: Request):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load cars table: {str(e)}")
 
+@app.get("/car/{car_id}", response_class=HTMLResponse)
+def get_car_detail(request: Request, car_id: str):
+    """Show details of a car and list of images"""
+    try:
+        filename = f"car_data_{car_id}_latest.json"
+        filepath = STORAGE_DIR / filename
+        car_data = None
+
+        if filepath.exists():
+            with open(filepath, 'r', encoding='utf-8') as f:
+                file_data = json.load(f)
+            car_data = file_data.get('data', {})
+            car_data['url'] = file_data.get('url', '')
+        else:
+            raise HTTPException(status_code=404, detail="Car not found")
+
+        return templates.TemplateResponse("car_detail.html", {
+            "request": request,
+            "car_data": car_data,
+            "car_id": car_id
+        })
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load car detail: {str(e)}")
+
 @app.get("/api/known-cars")
 def get_known_cars():
     """Get list of known car IDs with metadata for userscript listing page highlighting"""

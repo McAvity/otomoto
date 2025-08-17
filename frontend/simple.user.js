@@ -34,7 +34,8 @@
         description: 'div.ooa-unlmzs.e11t9j224',
         brand: 'p.eur4qwl9',
         model: 'p.eur4qwl9',
-        vin: 'p.ed2m2uu0'
+        vin: 'p.ed2m2uu0',
+        images: 'div.embla-thumbs__container img',
     };
     
     // Create floating window
@@ -302,6 +303,16 @@
         const paddedMonth = String(monthIndex + 1).padStart(2, '0');
         return `${paddedDay}.${paddedMonth}.${year}`;
     }
+
+    function extractImages(){
+        const imageElements = $(extractionConfig.images);
+        return imageElements.map(function() {
+            const url = $(this).attr('src');
+            const cleanUrl = url ? url.split(';')[0] : null;
+
+            return cleanUrl;
+        }).get();
+    }
     
     // Extract data from page
     async function extractPageData() {
@@ -340,6 +351,10 @@
         extractedData.model = getValueByLabel('Model pojazdu');
         extractedData.registration_number = getValueByLabel("Numer rejestracyjny pojazdu");
         extractedData.first_registration_date = formatDate(getValueByLabel("Data pierwszej rejestracji w historii pojazdu"));
+        extractedData.images = extractImages();
+        if (!extractedData.image_main){
+            extractedData.image_main = extractedData.images[0];
+        }
         // extractedData.vin = getValueByLabel("VIN");
 
         const yearFromLabel = getValueByLabel('Rok produkcji');
