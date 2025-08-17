@@ -84,6 +84,90 @@
             font-weight: bold;
         }
         
+        .star-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .star-rating .star {
+            font-size: 1.2em;
+            color: #fbbf24;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .star-rating .star:hover {
+            color: #f59e0b;
+        }
+        
+        .star-rating .rating-number {
+            background: #4a5568;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .notes-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.5;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+        
+        .notes-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .save-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .save-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            margin-top: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .save-button:hover {
+            background: #2d3748;
+        }
+        
+        .save-button:disabled {
+            background: #a0aec0;
+            cursor: not-allowed;
+        }
+        
+        .save-status {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .save-status.success {
+            color: #38a169;
+        }
+        
+        .save-status.error {
+            color: #e53e3e;
+        }
+        
         .navigation {
             margin-bottom: 20px;
             display: flex;
@@ -434,33 +518,37 @@
             </div>
             {% endif %}
             
-            {% if car_data.user_notes or car_data.user_grade %}
             <div class="card user-data">
                 <div class="card-header">My Notes & Rating</div>
                 <div class="card-content">
-                    {% if car_data.user_grade and car_data.user_grade > 0 %}
-                    <div class="detail-item">
-                        <div class="detail-label">My Rating</div>
-                        <div class="rating">
-                            <div class="stars" style="color: #fbbf24;">
-                                {% for i in range(1, 6) %}
-                                    {% if i <= car_data.user_grade %}★{% else %}☆{% endif %}
-                                {% endfor %}
+                    <form id="userDataForm">
+                        <div class="detail-item">
+                            <div class="detail-label">My Rating</div>
+                            <div class="rating-input">
+                                <div class="star-rating">
+                                    {% for i in range(1, 6) %}
+                                    <span class="star" data-rating="{{ i }}" onclick="setRating({{ i }})">
+                                        {% if i <= (car_data.user_grade or 0) %}★{% else %}☆{% endif %}
+                                    </span>
+                                    {% endfor %}
+                                    <span id="rating-text" class="rating-number">{{ car_data.user_grade or 0 }}/5</span>
+                                </div>
+                                <input type="hidden" id="user_grade" name="user_grade" value="{{ car_data.user_grade or 0 }}">
                             </div>
-                            <span style="margin-left: 10px; font-weight: bold;">{{ car_data.user_grade }}/5</span>
                         </div>
-                    </div>
-                    {% endif %}
-                    
-                    {% if car_data.user_notes %}
-                    <div class="detail-item">
-                        <div class="detail-label">My Notes</div>
-                        <div class="user-notes">{{ car_data.user_notes }}</div>
-                    </div>
-                    {% endif %}
+                        
+                        <div class="detail-item">
+                            <div class="detail-label">My Notes</div>
+                            <textarea id="user_notes" name="user_notes" class="notes-input" rows="20" placeholder="Add your notes about this car...">{{ car_data.user_notes or '' }}</textarea>
+                        </div>
+                        
+                        <div class="save-controls">
+                            <button type="button" id="saveBtn" onclick="saveUserData()" class="save-button">Save Changes</button>
+                            <span id="saveStatus" class="save-status"></span>
+                        </div>
+                    </form>
                 </div>
             </div>
-            {% endif %}
             
             {% if car_data.description %}
             <div class="card">
@@ -489,5 +577,118 @@
             {% endif %}
         </div>
     </div>
+    
+    <script>
+        let currentRating = {{ car_data.user_grade or 0 }};
+        const carData = {{ car_data | tojson | safe }};
+        const carUrl = "{{ car_data.url }}";
+        
+        function setRating(rating) {
+            currentRating = rating;
+            document.getElementById('user_grade').value = rating;
+            document.getElementById('rating-text').textContent = rating + '/5';
+            
+            // Update star display
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                const starRating = index + 1;
+                star.textContent = starRating <= rating ? '★' : '☆';
+            });
+        }
+        
+        async function saveUserData() {
+            const saveBtn = document.getElementById('saveBtn');
+            const saveStatus = document.getElementById('saveStatus');
+            const userGrade = document.getElementById('user_grade').value;
+            const userNotes = document.getElementById('user_notes').value;
+            
+            // Disable button and show saving status
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+            saveStatus.textContent = '';
+            saveStatus.className = 'save-status';
+            
+            try {
+                // Maintain the exact field order from the current JSON structure
+                const updatedData = {
+                    car_name: carData.car_name || '',
+                    price: carData.price || '',
+                    location: carData.location || '',
+                    description: carData.description || '',
+                    phone: carData.phone || '',
+                    vin: carData.vin || '',
+                    car_type: carData.car_type || '',
+                    negotiable: carData.negotiable || '',
+                    mileage: carData.mileage || '',
+                    fuel: carData.fuel || '',
+                    transmission: carData.transmission || '',
+                    vehicle_type: carData.vehicle_type || '',
+                    cubic_capacity: carData.cubic_capacity || '',
+                    brand: carData.brand || '',
+                    model: carData.model || '',
+                    registration_number: carData.registration_number || '',
+                    first_registration_date: carData.first_registration_date || '',
+                    images: carData.images || [],
+                    image_main: carData.image_main || '',
+                    year: carData.year || '',
+                    user_notes: userNotes || '',
+                    user_grade: parseInt(userGrade) || 0,
+                    disabled: carData.disabled || false
+                };
+                
+                const response = await fetch('/save-extracted-data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        url: carUrl,
+                        data: updatedData
+                    })
+                });
+                
+                if (response.ok) {
+                    saveStatus.textContent = '✓ Saved successfully!';
+                    saveStatus.className = 'save-status success';
+                } else {
+                    throw new Error('Failed to save');
+                }
+            } catch (error) {
+                console.error('Error saving data:', error);
+                saveStatus.textContent = '✗ Failed to save. Please try again.';
+                saveStatus.className = 'save-status error';
+            } finally {
+                // Re-enable button
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Save Changes';
+                
+                // Clear status after 3 seconds
+                setTimeout(() => {
+                    saveStatus.textContent = '';
+                    saveStatus.className = 'save-status';
+                }, 3000);
+            }
+        }
+        
+        // Add hover effects to stars
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.star');
+            
+            stars.forEach((star, index) => {
+                star.addEventListener('mouseenter', function() {
+                    const hoverRating = index + 1;
+                    stars.forEach((s, i) => {
+                        s.textContent = (i + 1) <= hoverRating ? '★' : '☆';
+                    });
+                });
+                
+                star.addEventListener('mouseleave', function() {
+                    stars.forEach((s, i) => {
+                        s.textContent = (i + 1) <= currentRating ? '★' : '☆';
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
