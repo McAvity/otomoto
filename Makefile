@@ -1,4 +1,4 @@
-start:
+run:
 	cd backend && make run
 
 stop:
